@@ -1,11 +1,11 @@
-import express, { Express, Request, Response } from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import asanasRouter from "./routes/asanas-router";
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const asanasRouter = require("./routes/asanas-router");
 
 dotenv.config();
 
-const app: Express = express();
+const app = express();
 
 const corsOptions = {
   origin: "http://localhost:3000",
@@ -26,7 +26,7 @@ app.use("/images", express.static("images"));
 
 const port = process.env.PORT;
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req, res) => {
   res.send("Express + TypeScript Server");
 });
 

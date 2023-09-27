@@ -1,14 +1,14 @@
-import { Router } from "express";
+const { Router } = require("express");
 
-import {
+const {
   createAsana,
   deleteAsana,
   getAllAsanas,
   getAsana,
   updateAsana,
-} from "../controllers/asana-controller";
+} = require("../controllers/asana-controller");
 
-import multer from "multer";
+const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -29,4 +29,4 @@ router.delete("/:id", deleteAsana);
 router.get("/:id", getAsana);
 router.put("/:id", upload.single("image"), updateAsana);
 
-export default router;
+module.exports = router;

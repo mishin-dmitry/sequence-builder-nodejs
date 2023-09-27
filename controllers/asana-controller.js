@@ -1,14 +1,10 @@
-import { Response, Request } from "express";
-import db from "../models";
+const db = require("../models");
 
 // Основная модель
 const Asana = db.asanas;
 
 // Создание асаны
-export const createAsana = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+const createAsana = async (req, res) => {
   const data = {
     ...req.body,
     image: `images/${req.file?.filename}`,
@@ -20,17 +16,14 @@ export const createAsana = async (
 };
 
 // Получить список асан
-export const getAllAsanas = async (
-  _: Request,
-  res: Response
-): Promise<void> => {
+const getAllAsanas = async (_, res) => {
   const asanas = await Asana.findAll({});
 
   res.status(200).send(asanas);
 };
 
 // Получить асану
-export const getAsana = async (req: Request, res: Response): Promise<void> => {
+const getAsana = async (req, res) => {
   const { id } = req.params;
 
   const asana = await Asana.findOne({ where: { id } });
@@ -43,10 +36,7 @@ export const getAsana = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Обновить асану
-export const updateAsana = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+const updateAsana = async (req, res) => {
   const { id } = req.params;
 
   const data = {
@@ -61,13 +51,18 @@ export const updateAsana = async (
 };
 
 // Удалить асану
-export const deleteAsana = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+const deleteAsana = async (req, res) => {
   const { id } = req.params;
 
   await Asana.destroy({ where: { id } });
 
   res.status(200);
+};
+
+module.exports = {
+  deleteAsana,
+  updateAsana,
+  getAsana,
+  getAllAsanas,
+  createAsana,
 };

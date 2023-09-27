@@ -2,12 +2,10 @@
   "name": "sequence-builder-nodejs",
   "version": "0.0.0",
   "description": "api for building yoga sequnces on nodejs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
-    "start": "npx tsc && node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -30,10 +28,6 @@
     "sequelize-cli": "6.3.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.14",
-    "@types/express": "^4.17.18",
-    "@types/multer": "^1.4.7",
-    "@types/node": "^20.7.0",
     "concurrently": "^8.2.1",
     "nodemon": "^3.0.1",
     "typescript": "^5.2.2"

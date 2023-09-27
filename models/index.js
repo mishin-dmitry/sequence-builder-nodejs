@@ -1,5 +1,5 @@
-import { Sequelize, DataTypes } from "sequelize";
-import process from "process";
+const { Sequelize, DataTypes } = require("sequelize");
+const process = require("process");
 
 const env = process.env.NODE_ENV || "development";
 const dbConfig = require("../config/config.js")[env];
@@ -29,15 +29,15 @@ sequelize
     console.log("Error " + error);
   });
 
-const db: any = {};
+const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.asanas = require("./asana-model")(sequelize, DataTypes);
+db.asanas = require("./asana")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done");
 });
 
-export default db;
+module.exports = db;
