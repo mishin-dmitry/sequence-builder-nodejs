@@ -1,5 +1,4 @@
 import { Sequelize, DataTypes } from "sequelize";
-import { AsanaModel } from "./asana-model";
 import process from "process";
 
 const env = process.env.NODE_ENV || "development";
@@ -35,7 +34,7 @@ const db: any = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.asanas = AsanaModel(sequelize, DataTypes);
+db.asanas = require("./asana-model")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done");
