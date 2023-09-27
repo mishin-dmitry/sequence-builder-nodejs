@@ -9,7 +9,7 @@ module.exports = {
     database: process.env.DATABASE_DB,
     host: process.env.DATABASE_HOST,
     port: process.env.DATABASE_PORT,
-    dialect: process.env.DATABASE_PROTOCOL,
+    dialect: "mysql",
     pool: {
       max: 5,
       min: 0,
@@ -30,6 +30,6 @@ module.exports = {
     database: process.env.DATABASE_DB,
     host: process.env.DATABASE_HOST,
     port: process.env.DATABASE_PORT,
-    dialect: process.env.DATABASE_PROTOCOL,
+    dialect: "mysql",
   },
 };
