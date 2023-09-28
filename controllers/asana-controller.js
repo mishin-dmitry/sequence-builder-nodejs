@@ -7,7 +7,7 @@ const Asana = db.asanas;
 const createAsana = async (req, res) => {
   const data = {
     ...req.body,
-    image: `images/${req.file?.filename}`,
+    image: req.file?.key || "",
   };
 
   const asana = await Asana.create(data);
