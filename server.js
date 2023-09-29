@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/asanas", asanasRouter);
 app.use("/images", express.static("images"));
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
   res.send("Express + TypeScript Server");
