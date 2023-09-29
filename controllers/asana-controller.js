@@ -41,8 +41,11 @@ const updateAsana = async (req, res) => {
 
   const data = {
     ...req.body,
-    image: `images/${req.file?.filename}`,
   };
+
+  if (req.file) {
+    data.image = req.file?.key || "";
+  }
 
   const asana = await Asana.update(data, { where: { id } });
 

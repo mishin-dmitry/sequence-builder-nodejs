@@ -5,7 +5,7 @@ const {
   deleteAsana,
   getAllAsanas,
   getAsana,
-  // updateAsana,
+  updateAsana,
 } = require("../controllers/asana-controller");
 
 const s3 = require("../config/s3-client");
@@ -18,6 +18,11 @@ const upload = multer({
     s3: s3,
     bucket: "sequoia-cdn",
     acl: "public-read",
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+    multerOptions: {
+      partSize: 5 * 1024 * 1024, // 5MB per part
+      queueSize: 10, // upload 10 parts concurrently
+    },
     key: function (request, file, cb) {
       console.log(file);
       cb(null, `asanas/pictograms/${file.originalname}`);
@@ -31,6 +36,6 @@ router.post("/create", upload.single("image"), createAsana);
 router.get("/getAll", getAllAsanas);
 router.delete("/:id", deleteAsana);
 router.get("/:id", getAsana);
-// router.put("/:id", upload.single("image"), updateAsana);
+router.put("/:id", upload.single("image"), updateAsana);
 
 module.exports = router;
