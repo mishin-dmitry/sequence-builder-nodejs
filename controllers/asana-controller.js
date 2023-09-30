@@ -5,12 +5,7 @@ const Asana = db.asanas;
 
 // Создание асаны
 const createAsana = async (req, res) => {
-  const data = {
-    ...req.body,
-    image: req.file?.key || "",
-  };
-
-  const asana = await Asana.create(data);
+  const asana = await Asana.create(req.body);
 
   res.status(200).send(asana);
 };
@@ -39,15 +34,7 @@ const getAsana = async (req, res) => {
 const updateAsana = async (req, res) => {
   const { id } = req.params;
 
-  const data = {
-    ...req.body,
-  };
-
-  if (req.file) {
-    data.image = req.file?.key || "";
-  }
-
-  const asana = await Asana.update(data, { where: { id } });
+  const asana = await Asana.update(req.body, { where: { id } });
 
   // TODO 404
   res.status(200).send(asana);

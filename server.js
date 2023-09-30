@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000", "http://localhost:3001"],
 
   methods: ["GET", "POST", "DELETE", "PUT"],
 
@@ -22,7 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // routers
 app.use("/api/asanas", asanasRouter);
-app.use("/images", express.static("images"));
 
 const port = process.env.PORT || 8000;
 
