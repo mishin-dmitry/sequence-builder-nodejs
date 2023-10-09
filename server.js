@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+
 const asanasRouter = require("./routes/asanas-router");
+const asanaGroupsRouter = require("./routes/asana-groups-router");
 
 dotenv.config();
 
@@ -22,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routers
 app.use("/api/asanas", asanasRouter);
+app.use("/api/asana-groups", asanaGroupsRouter);
 
 const port = process.env.PORT || 8000;
 
