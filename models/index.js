@@ -37,9 +37,20 @@ db.sequelize = sequelize;
 
 db.asanas = require("./asana")(sequelize, DataTypes);
 db.asanasGroups = require("./asanas-group")(sequelize, DataTypes);
+db.asanaByGroups = require("./asana-by-group")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done");
 });
+
+Object.keys(db).forEach((modelName) => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+
+(async () => {
+  await sequelize.sync();
+})();
 
 module.exports = db;

@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class AsanasGroup extends Model {
     /**
@@ -8,7 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      AsanasGroup.belongsToMany(models.asanas, {
+        through: "AsanaByGroups",
+        as: "asanas",
+        foreignKey: "groupId",
+        otherKey: "asanaId",
+      });
     }
   }
   AsanasGroup.init(
@@ -20,5 +26,6 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "AsanasGroup",
     }
   );
+
   return AsanasGroup;
 };

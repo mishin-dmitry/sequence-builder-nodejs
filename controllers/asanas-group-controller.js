@@ -21,14 +21,12 @@ const getAllAsanasGroups = async (_, res) => {
 const getAsanasGroup = async (req, res) => {
   const { id } = req.params;
 
-  console.log("ID", id);
-
   const asana = await AsanasGroup.findOne({ where: { id } });
 
   if (asana) {
     res.status(200).send(asana);
   } else {
-    res.status(404);
+    res.status(404).send();
   }
 };
 
@@ -48,7 +46,7 @@ const deleteAsanasGroup = async (req, res) => {
 
   await AsanasGroup.destroy({ where: { id } });
 
-  res.status(200);
+  res.status(200).send();
 };
 
 module.exports = {
