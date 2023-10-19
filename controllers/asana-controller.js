@@ -6,11 +6,11 @@ const AsanaByGroup = db.asanaByGroups;
 
 // Создание асаны
 const createAsana = async (req, res) => {
-  const { groups, ...restBody } = req.body;
+  const { groups = [], ...restBody } = req.body;
 
   const asana = await Asana.create(restBody);
 
-  await groups.forEach(async (groupId) => {
+  groups.forEach(async (groupId) => {
     await AsanaByGroup.create({ asanaId: asana.id, groupId });
   });
 
@@ -43,7 +43,7 @@ const getAsana = async (req, res) => {
 const updateAsana = async (req, res) => {
   const { id } = req.params;
 
-  const { groups, ...restBody } = req.body;
+  const { groups = [], ...restBody } = req.body;
 
   await AsanaByGroup.destroy({ where: { asanaId: id } });
 
@@ -55,7 +55,6 @@ const updateAsana = async (req, res) => {
 
       asanaGroup.update({ asanaId: id, groupId });
     } catch (error) {
-      console.log(error);
       await AsanaByGroup.create({ asanaId: id, groupId });
     }
   });
@@ -72,7 +71,7 @@ const deleteAsana = async (req, res) => {
 
   await Asana.destroy({ where: { id } });
 
-  res.status(200).send();
+  res.status(200).send({});
 };
 
 module.exports = {

@@ -46,7 +46,7 @@ const deleteAsanasGroup = async (req, res) => {
 
   await AsanasGroup.destroy({ where: { id } });
 
-  res.status(200).send();
+  res.status(200).send({});
 };
 
 module.exports = {
