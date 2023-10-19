@@ -1,6 +1,6 @@
 {
   "name": "sequence-builder-nodejs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "api for building yoga sequnces on nodejs",
   "main": "server.js",
   "scripts": {
