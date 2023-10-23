@@ -13,7 +13,9 @@ const signup = async (req, res) => {
     });
 
     if (user) {
-      res.status(409).send({ message: "User already exists" });
+      res.status(200).send({ error: "User already exists" });
+
+      return;
     }
 
     user = await User.create({
@@ -27,12 +29,14 @@ const signup = async (req, res) => {
       expiresIn: 86400, // 24 hours
     });
 
-    req.session.token = token;
+    res.cookie("_sid", token);
 
-    res.status(201).send({ message: "User registered successfully!" });
+    res.status(201).send({
+      id: user.id,
+      email: user.email,
+    });
   } catch (error) {
-    console.log(error);
-    res.status(500).send({ message: "Cannot create user" });
+    res.status(500).send({ error: "Cannot create user" });
   }
 };
 
@@ -46,7 +50,7 @@ const login = async (req, res) => {
     });
 
     if (!user) {
-      return res.status(404).send({ message: "User not found" });
+      return res.status(200).send({ error: "Invalid password or email" });
     }
 
     const isPasswordValid = bcrypt.compareSync(
@@ -55,8 +59,8 @@ const login = async (req, res) => {
     );
 
     if (!isPasswordValid) {
-      return res.status(401).send({
-        message: "Invalid password",
+      return res.status(200).send({
+        error: "Invalid password or email",
       });
     }
 
@@ -66,14 +70,14 @@ const login = async (req, res) => {
       expiresIn: 86400, // 24 hours
     });
 
-    req.session.token = token;
+    res.cookie("_sid", token);
 
     return res.status(200).send({
       id: user.id,
       email: user.email,
     });
   } catch {
-    return res.status(500).send({ message: "Error during login" });
+    return res.status(500).send({ error: "Error during login" });
   }
 };
 

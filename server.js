@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const cookieSession = require("cookie-session");
+const cookieParser = require("cookie-parser");
 
 const asanasRouter = require("./routes/asanas.router");
 const asanaGroupsRouter = require("./routes/asana-groups.router");
@@ -17,6 +17,8 @@ const corsOptions = {
   methods: ["GET", "POST", "DELETE", "PUT"],
 
   allowedHeaders: ["Content-Type"],
+
+  credentials: true,
 };
 
 // middlewares
@@ -29,13 +31,7 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  cookieSession({
-    name: "bezkoder-session",
-    keys: [process.env.SECRET],
-    httpOnly: true,
-  })
-);
+app.use(cookieParser());
 
 // routers
 app.use("/api/asanas", asanasRouter);
