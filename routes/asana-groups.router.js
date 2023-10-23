@@ -6,7 +6,7 @@ const {
   getAllAsanasGroups,
   getAsanasGroup,
   updateAsanasGroup,
-} = require("../controllers/asanas-group-controller");
+} = require("../controllers/asanas-group.controller");
 
 const router = Router();
 

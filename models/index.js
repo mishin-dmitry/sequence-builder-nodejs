@@ -38,6 +38,7 @@ db.sequelize = sequelize;
 db.asanas = require("./asana")(sequelize, DataTypes);
 db.asanasGroups = require("./asanas-group")(sequelize, DataTypes);
 db.asanaByGroups = require("./asana-by-group")(sequelize, DataTypes);
+db.users = require("./user")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done");
