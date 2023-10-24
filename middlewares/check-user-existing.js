@@ -3,17 +3,20 @@ const User = db.users;
 
 const checkUserExisting = async (req, res, next) => {
   try {
-    const user = User.findOne({ where: { email: req.body.email } });
+    if (!req.userId) {
+      return next();
+    }
+
+    const user = await User.findOne({ where: { id: req.userId } });
 
     if (user) {
-      return res.status(400).send({
-        message: "Email is already registered",
-      });
+      req.user = user;
     }
 
     next();
   } catch (error) {
     console.log(error);
+    next();
   }
 };
 

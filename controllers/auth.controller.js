@@ -26,7 +26,7 @@ const signup = async (req, res) => {
     const token = jwt.sign({ id: user.id }, process.env.SECRET, {
       algorithm: "HS256",
       allowInsecureKeySizes: true,
-      expiresIn: 86400, // 24 hours
+      expiresIn: "30d",
     });
 
     res.cookie("_sid", token);
@@ -67,7 +67,7 @@ const login = async (req, res) => {
     const token = jwt.sign({ id: user.id }, process.env.SECRET, {
       algorithm: "HS256",
       allowInsecureKeySizes: true,
-      expiresIn: 86400, // 24 hours
+      expiresIn: "30d",
     });
 
     res.cookie("_sid", token);
@@ -84,13 +84,14 @@ const login = async (req, res) => {
 // Разлогин
 const logout = async (req, res) => {
   try {
-    req.session = null;
+    req.userId = null;
+    req.user = null;
 
-    return res.status(200).send({
-      message: "You've been signed out!",
-    });
+    res.clearCookie("_sid");
+
+    return res.status(200).send({});
   } catch (error) {
-    this.next(error);
+    console.log(error);
   }
 };
 

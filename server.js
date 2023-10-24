@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const asanasRouter = require("./routes/asanas.router");
 const asanaGroupsRouter = require("./routes/asana-groups.router");
 const authRouter = require("./routes/auth.router");
+const userRouter = require("./routes/user.router");
 
 dotenv.config();
 
@@ -37,6 +38,7 @@ app.use(cookieParser());
 app.use("/api/asanas", asanasRouter);
 app.use("/api/asana-groups", asanaGroupsRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 
 const port = process.env.PORT || 8000;
 
