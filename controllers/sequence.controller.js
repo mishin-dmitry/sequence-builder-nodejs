@@ -205,9 +205,43 @@ const updateSequence = async (req, res) => {
   return res.status(200).send(updatedSequence);
 };
 
+const getPublicSequences = async (req, res) => {
+  const { userId } = req;
+
+  if (!userId) {
+    return res.status(200).send([]);
+  }
+
+  const result = await Sequence.findAll({
+    where: {
+      isPublic: true,
+    },
+  });
+
+  return res.status(200).send(result);
+};
+
+const getUserSequences = async (req, res) => {
+  const { userId } = req;
+
+  if (!userId) {
+    return res.status(200).send([]);
+  }
+
+  const result = await Sequence.findAll({
+    where: {
+      userId,
+    },
+  });
+
+  return res.status(200).send(result);
+};
+
 module.exports = {
   createSequence,
   getSequence,
   deleteSequence,
   updateSequence,
+  getPublicSequences,
+  getUserSequences,
 };
