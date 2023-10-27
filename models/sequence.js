@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         { onDelete: "cascade" }
       );
+
+      Sequence.belongsTo(models.users, {
+        foreignKey: "userId",
+      });
     }
   }
   Sequence.init(
