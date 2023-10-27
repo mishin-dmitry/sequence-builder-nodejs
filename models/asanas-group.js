@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "AsanasGroup",
-    }
+    },
+    { timestamps: false }
   );
 
   return AsanasGroup;

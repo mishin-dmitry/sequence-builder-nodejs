@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "asanaId",
         otherKey: "groupId",
       });
+
+      Asana.belongsToMany(models.blocks, {
+        through: "BlockAsana",
+        foreignKey: "asanaId",
+        otherKey: "blockId",
+      });
     }
   }
   Asana.init(
