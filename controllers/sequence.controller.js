@@ -47,6 +47,10 @@ const createSequence = async (req, res) => {
           model: Asanas,
           attributes: ["id", "alias"],
           as: "asanas",
+          through: {
+            attributes: ["inRepeatingBlock"],
+            as: "options",
+          },
         },
       },
     });
