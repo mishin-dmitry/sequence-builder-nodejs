@@ -8,6 +8,7 @@ const asanaGroupsRouter = require("./routes/asana-groups.router");
 const authRouter = require("./routes/auth.router");
 const userRouter = require("./routes/user.router");
 const sequencesRouter = require("./routes/sequences.router");
+const sequencesListRouter = require("./routes/sequences-list.router");
 
 dotenv.config();
 
@@ -41,6 +42,7 @@ app.use("/api/asana-groups", asanaGroupsRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/sequences", sequencesRouter);
+app.use("/api/sequences-list", sequencesListRouter);
 
 const port = process.env.PORT || 8000;
 

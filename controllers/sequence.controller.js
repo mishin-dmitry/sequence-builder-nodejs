@@ -59,7 +59,7 @@ const createSequence = async (req, res) => {
 };
 
 const getSequence = async (req, res) => {
-  const { id } = req.query;
+  const { id } = req.params;
   const { userId } = req;
 
   const sequence = await Sequence.findByPk(id, {
@@ -93,7 +93,7 @@ const getSequence = async (req, res) => {
 };
 
 const deleteSequence = async (req, res) => {
-  const { id } = req.query;
+  const { id } = req.params;
   const { userId } = req;
 
   if (!userId) {
@@ -132,28 +132,14 @@ const deleteSequence = async (req, res) => {
 
 const updateSequence = async (req, res) => {
   const { userId } = req;
-  const { blocks, id, ...restBody } = req.body;
+  const { id } = req.params;
+  const { blocks, ...restBody } = req.body;
 
   if (!userId) {
     return res.status(403).send({});
   }
 
-  const sequence = await Sequence.findByPk(id, {
-    include: {
-      model: Block,
-      as: "blocks",
-      attributes: ["id"],
-      include: {
-        model: Asanas,
-        attributes: ["id", "alias"],
-        as: "asanas",
-        through: {
-          attributes: ["inRepeatingBlock"],
-          as: "options",
-        },
-      },
-    },
-  });
+  const sequence = await Sequence.findByPk(id);
 
   if (!sequence) {
     return res.status(200).send({ isFound: false });
@@ -216,6 +202,20 @@ const getPublicSequences = async (req, res) => {
     where: {
       isPublic: true,
     },
+    include: {
+      model: Block,
+      as: "blocks",
+      attributes: ["id"],
+      include: {
+        model: Asanas,
+        attributes: ["id", "alias"],
+        as: "asanas",
+        through: {
+          attributes: ["inRepeatingBlock"],
+          as: "options",
+        },
+      },
+    },
   });
 
   return res.status(200).send(result);
@@ -231,6 +231,20 @@ const getUserSequences = async (req, res) => {
   const result = await Sequence.findAll({
     where: {
       userId,
+    },
+    include: {
+      model: Block,
+      as: "blocks",
+      attributes: ["id"],
+      include: {
+        model: Asanas,
+        attributes: ["id", "alias"],
+        as: "asanas",
+        through: {
+          attributes: ["inRepeatingBlock"],
+          as: "options",
+        },
+      },
     },
   });
 

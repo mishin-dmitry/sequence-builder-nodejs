@@ -10,10 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Block.belongsToMany(models.asanas, {
-        through: "BlockAsana",
+        through: {
+          model: "BlockAsana",
+          unique: false,
+        },
         as: "asanas",
         foreignKey: "blockId",
         otherKey: "asanaId",
+        unique: false,
       });
 
       Block.belongsTo(models.sequences, {

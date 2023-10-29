@@ -1,10 +1,26 @@
 const jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
-  const token = req.cookies._sid;
+  let token = req.cookies._sid;
 
   if (!token) {
-    return next();
+    // Если передали куки в getServerSideProps
+    if (req.headers.cookies?.includes("_sid")) {
+      const splittedCookies = req.headers.cookies.split(";");
+      const tokenString = splittedCookies.find((cookieString) =>
+        cookieString.trim().startsWith("_sid")
+      );
+
+      if (tokenString) {
+        const [_, sid] = tokenString.split("=");
+
+        token = sid;
+      } else {
+        next();
+      }
+    } else {
+      return next();
+    }
   }
 
   jwt.verify(token, process.env.SECRET, (err, decoded) => {
