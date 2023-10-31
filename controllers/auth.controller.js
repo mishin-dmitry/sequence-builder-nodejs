@@ -129,7 +129,7 @@ const requestResetPassword = async (req, res) => {
   const link = `${process.env.DOMAIN}/reset-password?token=${resetToken}&id=${user.id}`;
 
   return sendEmail(res, {
-    email: user.emal,
+    email,
     subject: "Запрос на смену пароля",
     payload: { link },
     template: "./templates/request-reset-password.handlebars",
