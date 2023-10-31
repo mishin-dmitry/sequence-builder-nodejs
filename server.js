@@ -44,6 +44,11 @@ app.use("/api/user", userRouter);
 app.use("/api/sequences", sequencesRouter);
 app.use("/api/sequences-list", sequencesListRouter);
 
+// catch all async errors
+app.use((error, req, res, next) => {
+  res.status(500).json({ error: error.message });
+});
+
 const port = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
