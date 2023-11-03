@@ -9,6 +9,7 @@ const authRouter = require("./routes/auth.router");
 const userRouter = require("./routes/user.router");
 const sequencesRouter = require("./routes/sequences.router");
 const sequencesListRouter = require("./routes/sequences-list.router");
+const feedbackRouter = require("./routes/feedback.router");
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/sequences", sequencesRouter);
 app.use("/api/sequences-list", sequencesListRouter);
+app.use("/api/feedback", feedbackRouter);
 
 // catch all async errors
 app.use((error, req, res, next) => {
