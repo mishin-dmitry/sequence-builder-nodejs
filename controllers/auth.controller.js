@@ -73,6 +73,13 @@ const login = async (req, res) => {
       });
     }
 
+    console.log(
+      "process.env.JWT_SECRET",
+      process.env.JWT_SECRET,
+      "user.id",
+      user.id
+    );
+
     const jwtToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
       algorithm: "HS256",
       allowInsecureKeySizes: true,
