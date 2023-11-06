@@ -30,11 +30,14 @@ const createSequence = async (req, res) => {
     const blockInstance = await Block.create({ sequenceId: sequence.id });
 
     await BlockAsanas.bulkCreate(
-      block.map(({ asanaId, inRepeatingBlock = false }) => ({
-        blockId: blockInstance.id,
-        asanaId,
-        inRepeatingBlock,
-      }))
+      block.map(
+        ({ asanaId, inRepeatingBlock = false, inDynamicBlock = false }) => ({
+          blockId: blockInstance.id,
+          asanaId,
+          inRepeatingBlock,
+          inDynamicBlock,
+        })
+      )
     );
   }
 
@@ -48,7 +51,7 @@ const createSequence = async (req, res) => {
         attributes: ["id", "alias"],
         as: "asanas",
         through: {
-          attributes: ["inRepeatingBlock"],
+          attributes: ["inRepeatingBlock", "inDynamicBlock"],
           as: "options",
         },
       },
@@ -72,7 +75,7 @@ const getSequence = async (req, res) => {
         attributes: ["id", "alias"],
         as: "asanas",
         through: {
-          attributes: ["inRepeatingBlock"],
+          attributes: ["inRepeatingBlock", "inDynamicBlock"],
           as: "options",
         },
       },
@@ -110,7 +113,7 @@ const deleteSequence = async (req, res) => {
         attributes: ["id", "alias"],
         as: "asanas",
         through: {
-          attributes: ["inRepeatingBlock"],
+          attributes: ["inRepeatingBlock", "inDynamicBlock"],
           as: "options",
         },
       },
@@ -161,11 +164,14 @@ const updateSequence = async (req, res) => {
     const blockInstance = await Block.create({ sequenceId: sequence.id });
 
     await BlockAsanas.bulkCreate(
-      block.map(({ asanaId, inRepeatingBlock = false }) => ({
-        blockId: blockInstance.id,
-        asanaId,
-        inRepeatingBlock,
-      }))
+      block.map(
+        ({ asanaId, inRepeatingBlock = false, inDynamicBlock = false }) => ({
+          blockId: blockInstance.id,
+          asanaId,
+          inRepeatingBlock,
+          inDynamicBlock,
+        })
+      )
     );
   }
 
@@ -181,7 +187,7 @@ const updateSequence = async (req, res) => {
         attributes: ["id", "alias"],
         as: "asanas",
         through: {
-          attributes: ["inRepeatingBlock"],
+          attributes: ["inRepeatingBlock", "inDynamicBlock"],
           as: "options",
         },
       },
@@ -211,7 +217,7 @@ const getPublicSequences = async (req, res) => {
         attributes: ["id", "alias"],
         as: "asanas",
         through: {
-          attributes: ["inRepeatingBlock"],
+          attributes: ["inRepeatingBlock", "inDynamicBlock"],
           as: "options",
         },
       },
@@ -241,7 +247,7 @@ const getUserSequences = async (req, res) => {
         attributes: ["id", "alias"],
         as: "asanas",
         through: {
-          attributes: ["inRepeatingBlock"],
+          attributes: ["inRepeatingBlock", "inDynamicBlock"],
           as: "options",
         },
       },
