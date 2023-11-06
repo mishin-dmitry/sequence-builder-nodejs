@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const sendEmail = require("../utils/send-email");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 // Регистрация
 const signup = async (req, res) => {
