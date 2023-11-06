@@ -48,12 +48,15 @@ const signup = async (req, res) => {
 
 // Авторизация
 const login = async (req, res) => {
+  console.log("req.body.email", req.body.email);
   try {
     const user = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
+
+    console.log("USER", user);
 
     if (!user) {
       return res.status(200).send({ error: "Invalid password or email" });
