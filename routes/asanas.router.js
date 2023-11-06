@@ -6,7 +6,7 @@ const {
   getAllAsanas,
   getAsana,
   updateAsana,
-} = require("../controllers/asana-controller");
+} = require("../controllers/asana.controller");
 
 const router = Router();
 

@@ -35,9 +35,15 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.asanas = require("./asana")(sequelize, DataTypes);
-db.asanasGroups = require("./asanas-group")(sequelize, DataTypes);
-db.asanaByGroups = require("./asana-by-group")(sequelize, DataTypes);
+db.asanas = require("./asana.model.js")(sequelize, DataTypes);
+db.asanasGroups = require("./asanas-group.model.js")(sequelize, DataTypes);
+db.asanaByGroups = require("./asana-by-group.model.js")(sequelize, DataTypes);
+db.users = require("./user.model.js")(sequelize, DataTypes);
+db.sequences = require("./sequence.model.js")(sequelize, DataTypes);
+db.blocks = require("./block.model.js")(sequelize, DataTypes);
+db.blockAsanas = require("./block-asana.model.js")(sequelize, DataTypes);
+db.tokens = require("./token.model.js")(sequelize, DataTypes);
+db.feedbacks = require("./feedback.model.js")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done");

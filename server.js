@@ -1,9 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
-const asanasRouter = require("./routes/asanas-router");
-const asanaGroupsRouter = require("./routes/asana-groups-router");
+const asanasRouter = require("./routes/asanas.router");
+const asanaGroupsRouter = require("./routes/asana-groups.router");
+const authRouter = require("./routes/auth.router");
+const userRouter = require("./routes/user.router");
+const sequencesRouter = require("./routes/sequences.router");
+const sequencesListRouter = require("./routes/sequences-list.router");
+const feedbackRouter = require("./routes/feedback.router");
 
 dotenv.config();
 
@@ -15,16 +21,35 @@ const corsOptions = {
   methods: ["GET", "POST", "DELETE", "PUT"],
 
   allowedHeaders: ["Content-Type"],
+
+  credentials: true,
 };
 
 // middlewares
-app.use(express.json());
+
 app.use(cors(corsOptions));
+
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cookieParser());
 
 // routers
 app.use("/api/asanas", asanasRouter);
 app.use("/api/asana-groups", asanaGroupsRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
+app.use("/api/sequences", sequencesRouter);
+app.use("/api/sequences-list", sequencesListRouter);
+app.use("/api/feedback", feedbackRouter);
+
+// catch all async errors
+app.use((error, req, res, next) => {
+  res.status(500).json({ error: error.message });
+});
 
 const port = process.env.PORT || 8000;
 
