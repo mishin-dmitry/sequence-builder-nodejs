@@ -6,6 +6,52 @@ const Block = db.blocks;
 const BlockAsanas = db.blockAsanas;
 const Asanas = db.asanas;
 
+const collectSequenceInfoById = async (id) => {
+  // Найдем модель последовательности
+  const sequence = await Sequence.findByPk(id, { raw: true });
+
+  if (!sequence) return null;
+
+  // Соберем все блоки
+  const blocks = await Block.findAll({ where: { sequenceId: id }, raw: true });
+
+  const resultBlocks = [];
+
+  for (let i = 0; i < blocks.length; i++) {
+    const currentBlock = blocks[i];
+
+    // Найдем все асаны для текущего блока
+    const blockAsanas = await BlockAsanas.findAll({
+      where: { blockId: currentBlock.id },
+      raw: true,
+    });
+
+    const currentBlockAsanas = [];
+
+    // Соберем инфу о асанах
+    for (let j = 0; j < blockAsanas.length; j++) {
+      const { asanaId, inRepeatingBlock, inDynamicBlock } = blockAsanas[j];
+
+      const asana = await Asanas.findByPk(asanaId);
+
+      currentBlockAsanas.push({
+        id: asana.id,
+        alias: asana.alias,
+        inRepeatingBlock: Boolean(inRepeatingBlock),
+        inDynamicBlock: Boolean(inDynamicBlock),
+      });
+    }
+
+    resultBlocks.push(currentBlockAsanas);
+  }
+
+  return {
+    ...sequence,
+    isPublic: Boolean(sequence.isPublic),
+    blocks: resultBlocks,
+  };
+};
+
 // Создание последовательности
 const createSequence = async (req, res) => {
   if (!req.user) {
@@ -41,22 +87,7 @@ const createSequence = async (req, res) => {
     );
   }
 
-  const result = await Sequence.findByPk(sequence.id, {
-    include: {
-      model: Block,
-      as: "blocks",
-      attributes: ["id"],
-      include: {
-        model: Asanas,
-        attributes: ["id", "alias"],
-        as: "asanas",
-        through: {
-          attributes: ["inRepeatingBlock", "inDynamicBlock"],
-          as: "options",
-        },
-      },
-    },
-  });
+  const result = collectSequenceInfoById(sequence.id);
 
   res.status(200).send(result);
 };
@@ -65,22 +96,7 @@ const getSequence = async (req, res) => {
   const { id } = req.params;
   const { userId } = req;
 
-  const sequence = await Sequence.findByPk(id, {
-    include: {
-      model: Block,
-      as: "blocks",
-      attributes: ["id"],
-      include: {
-        model: Asanas,
-        attributes: ["id", "alias"],
-        as: "asanas",
-        through: {
-          attributes: ["inRepeatingBlock", "inDynamicBlock"],
-          as: "options",
-        },
-      },
-    },
-  });
+  const sequence = await collectSequenceInfoById(id);
 
   if (!sequence) {
     return res.status(200).send({ isFound: false });
@@ -103,22 +119,7 @@ const deleteSequence = async (req, res) => {
     return res.status(403).send({});
   }
 
-  const sequence = await Sequence.findByPk(id, {
-    include: {
-      model: Block,
-      as: "blocks",
-      attributes: ["id"],
-      include: {
-        model: Asanas,
-        attributes: ["id", "alias"],
-        as: "asanas",
-        through: {
-          attributes: ["inRepeatingBlock", "inDynamicBlock"],
-          as: "options",
-        },
-      },
-    },
-  });
+  const sequence = await Sequence.findByPk(id);
 
   if (!sequence) {
     return res.status(200).send({ isFound: false });
@@ -177,22 +178,7 @@ const updateSequence = async (req, res) => {
 
   await sequence.save();
 
-  const updatedSequence = await Sequence.findByPk(id, {
-    include: {
-      model: Block,
-      as: "blocks",
-      attributes: ["id"],
-      include: {
-        model: Asanas,
-        attributes: ["id", "alias"],
-        as: "asanas",
-        through: {
-          attributes: ["inRepeatingBlock", "inDynamicBlock"],
-          as: "options",
-        },
-      },
-    },
-  });
+  const updatedSequence = collectSequenceInfoById(id);
 
   return res.status(200).send(updatedSequence);
 };

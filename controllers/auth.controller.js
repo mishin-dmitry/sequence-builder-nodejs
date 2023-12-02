@@ -51,15 +51,12 @@ const signup = async (req, res) => {
 
 // Авторизация
 const login = async (req, res) => {
-  console.log("req.body.email", req.body.email);
   try {
     const user = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
-
-    console.log("USER", user);
 
     if (!user) {
       return res.status(200).send({ error: "Invalid password or email" });
@@ -75,8 +72,6 @@ const login = async (req, res) => {
         error: "Invalid password or email",
       });
     }
-
-    console.log("process.env.JWT_SECRET", process.env, "user.id", user.id);
 
     const jwtToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
       algorithm: "HS256",

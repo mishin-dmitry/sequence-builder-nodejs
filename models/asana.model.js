@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         foreignKey: "asanaId",
         otherKey: "blockId",
+        unique: false,
       });
     }
   }
