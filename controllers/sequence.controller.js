@@ -87,7 +87,7 @@ const createSequence = async (req, res) => {
     );
   }
 
-  const result = collectSequenceInfoById(sequence.id);
+  const result = await collectSequenceInfoById(sequence.id);
 
   res.status(200).send(result);
 };
@@ -178,7 +178,7 @@ const updateSequence = async (req, res) => {
 
   await sequence.save();
 
-  const updatedSequence = collectSequenceInfoById(id);
+  const updatedSequence = await collectSequenceInfoById(id);
 
   return res.status(200).send(updatedSequence);
 };
