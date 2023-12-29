@@ -7,5 +7,5 @@ module.exports = {
     }),
 
   down: async (queryInterface, Sequelize) =>
-    queryInterface.removeColumn("Users", "searchKeys"),
+    queryInterface.removeColumn("Asanas", "searchKeys"),
 };

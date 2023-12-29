@@ -4,13 +4,12 @@ module.exports = {
   up: async (queryInterface, Sequelize) =>
     queryInterface.addColumn(
       "Asanas", // table name
-      "alias", // new field name
+      "alignment", // new field name
       {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.TEXT,
       }
     ),
 
   down: async (queryInterface, Sequelize) =>
-    queryInterface.removeColumn("Asanas", "alias"),
+    queryInterface.removeColumn("Users", "alignment"),
 };

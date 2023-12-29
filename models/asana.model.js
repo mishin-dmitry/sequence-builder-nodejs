@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       name: { type: DataTypes.STRING, allowNull: false },
       description: DataTypes.TEXT,
       alias: { type: DataTypes.STRING, allowNull: false },
+      alignment: DataTypes.TEXT,
       searchKeys: DataTypes.TEXT,
     },
     {
