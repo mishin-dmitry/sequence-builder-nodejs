@@ -15,9 +15,9 @@ const createAsana = async (req, res) => {
     await AsanaByGroup.create({ asanaId: asana.id, groupId });
   });
 
-  pirs.forEach(async (pirId) => {
-    await Pirs.create({ asanaId: asana.id, pirId });
-  });
+  // pirs.forEach(async (pirId) => {
+  //   await Pirs.create({ asanaId: asana.id, pirId });
+  // });
 
   res.status(200).send(asana);
 };
@@ -28,24 +28,25 @@ const getAllAsanas = async (_, res) => {
     include: ["groups"],
   });
 
-  const result = [];
+  // const result = [];
 
-  for (let i = 0; i < asanas.length; i++) {
-    const currentAsana = asanas[i].get({ plain: true });
+  // for (let i = 0; i < asanas.length; i++) {
+  //   const currentAsana = asanas[i].get({ plain: true });
 
-    const pirs =
-      (await Pirs.findAll(
-        { where: { asanaId: currentAsana.id } },
-        { raw: true }
-      )) ?? [];
+  //   const pirs =
+  //     (await Pirs.findAll(
+  //       { where: { asanaId: currentAsana.id } },
+  //       { raw: true }
+  //     )) ?? [];
 
-    result.push({
-      ...currentAsana,
-      pirs: pirs.map(({ pirId }) => pirId),
-    });
-  }
+  //   result.push({
+  //     ...currentAsana,
+  //     pirs: pirs.map(({ pirId }) => pirId),
+  //   });
+  // }
 
-  res.status(200).send(result);
+  res.status(200).send(asanas);
+  // res.status(200).send(result);
 };
 
 // Получить асану
@@ -68,7 +69,7 @@ const updateAsana = async (req, res) => {
   const { groups = [], pirs = [], ...restBody } = req.body;
 
   await AsanaByGroup.destroy({ where: { asanaId: id } });
-  await Pirs.destroy({ where: { asanaId: id } });
+  // await Pirs.destroy({ where: { asanaId: id } });
 
   await groups.forEach(async (groupId) => {
     try {
@@ -82,11 +83,11 @@ const updateAsana = async (req, res) => {
     }
   });
 
-  await pirs.forEach(async (pirId) => {
-    try {
-      await Pirs.create({ asanaId: id, pirId });
-    } catch {}
-  });
+  // await pirs.forEach(async (pirId) => {
+  //   try {
+  //     await Pirs.create({ asanaId: id, pirId });
+  //   } catch {}
+  // });
 
   const asana = await Asana.update(restBody, { where: { id } });
 
