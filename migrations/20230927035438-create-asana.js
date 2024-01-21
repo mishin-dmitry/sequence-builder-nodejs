@@ -15,6 +15,13 @@ module.exports = {
       description: {
         type: Sequelize.TEXT,
       },
+      alias: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      searchKeys: {
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

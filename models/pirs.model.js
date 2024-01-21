@@ -1,26 +1,33 @@
+"use strict";
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  const Pirs = sequelize.define("Pirs", {
-    asanaId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
-      references: {
-        model: "Asana",
-        key: "id",
-      },
+  class Pirs extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      Pirs.belongsTo(models.asanas, {
+        foreignKey: "pirId",
+      });
+
+      Pirs.belongsTo(models.asanas, {
+        foreignKey: "asanaId",
+      });
+    }
+  }
+  Pirs.init(
+    {
+      title: { type: DataTypes.STRING },
     },
-    pirId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
-      references: {
-        model: "Asana",
-        key: "id",
-      },
+    {
+      sequelize,
+      modelName: "Pirs",
     },
-  });
+    { timestamps: false }
+  );
 
   return Pirs;
 };

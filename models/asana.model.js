@@ -26,14 +26,9 @@ module.exports = (sequelize, DataTypes) => {
         unique: false,
       });
 
-      Asana.belongsToMany(models.asanas, {
-        through: {
-          model: "Pirs",
-          unique: false,
-        },
+      Asana.hasMany(models.pirs, {
         as: "pirs",
-        foreignKey: "pirId",
-        otherKey: "asanaId",
+        foreignKey: "asanaId",
         unique: false,
       });
     }

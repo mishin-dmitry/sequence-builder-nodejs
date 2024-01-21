@@ -11,13 +11,12 @@ const createAsana = async (req, res) => {
 
   const asana = await Asana.create(restBody);
 
-  groups.forEach(async (groupId) => {
-    await AsanaByGroup.create({ asanaId: asana.id, groupId });
-  });
-
-  // pirs.forEach(async (pirId) => {
-  //   await Pirs.create({ asanaId: asana.id, pirId });
-  // });
+  await Promise.all([
+    AsanaByGroup.bulkCreate(
+      groups.map((groupId) => ({ asanaId: asana.id, groupId }))
+    ),
+    Pirs.bulkCreate(pirs.map((pirId) => ({ asanaId: asana.id, pirId }))),
+  ]);
 
   res.status(200).send(asana);
 };
@@ -25,28 +24,17 @@ const createAsana = async (req, res) => {
 // Получить список асан
 const getAllAsanas = async (_, res) => {
   const asanas = await Asana.findAll({
-    include: ["groups"],
+    include: [
+      "groups",
+      {
+        model: Pirs,
+        as: "pirs",
+        attributes: ["pirId", "title"],
+      },
+    ],
   });
 
-  // const result = [];
-
-  // for (let i = 0; i < asanas.length; i++) {
-  //   const currentAsana = asanas[i].get({ plain: true });
-
-  //   const pirs =
-  //     (await Pirs.findAll(
-  //       { where: { asanaId: currentAsana.id } },
-  //       { raw: true }
-  //     )) ?? [];
-
-  //   result.push({
-  //     ...currentAsana,
-  //     pirs: pirs.map(({ pirId }) => pirId),
-  //   });
-  // }
-
   res.status(200).send(asanas);
-  // res.status(200).send(result);
 };
 
 // Получить асану
@@ -68,26 +56,16 @@ const updateAsana = async (req, res) => {
 
   const { groups = [], pirs = [], ...restBody } = req.body;
 
-  await AsanaByGroup.destroy({ where: { asanaId: id } });
-  // await Pirs.destroy({ where: { asanaId: id } });
+  await Promise.all([
+    AsanaByGroup.destroy({ where: { asanaId: id } }),
+    Pirs.destroy({ where: { asanaId: id } }),
 
-  await groups.forEach(async (groupId) => {
-    try {
-      const asanaGroup = await AsanaByGroup.findOne({
-        where: { asanaId: id, groupId },
-      });
+    AsanaByGroup.bulkCreate(
+      groups.map((groupId) => ({ asanaId: id, groupId }))
+    ),
 
-      asanaGroup.update({ asanaId: id, groupId });
-    } catch (error) {
-      await AsanaByGroup.create({ asanaId: id, groupId });
-    }
-  });
-
-  // await pirs.forEach(async (pirId) => {
-  //   try {
-  //     await Pirs.create({ asanaId: id, pirId });
-  //   } catch {}
-  // });
+    Pirs.bulkCreate(pirs.map((pirId) => ({ asanaId: id, pirId }))),
+  ]);
 
   const asana = await Asana.update(restBody, { where: { id } });
 

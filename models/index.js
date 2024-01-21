@@ -18,6 +18,9 @@ const sequelize = new Sequelize(
       acquire: dbConfig.pool.acquire,
       idle: dbConfig.pool.idle,
     },
+    define: {
+      timestamps: false,
+    },
   }
 );
 
