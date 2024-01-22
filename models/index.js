@@ -48,6 +48,8 @@ db.blockAsanas = require("./block-asana.model.js")(sequelize, DataTypes);
 db.tokens = require("./token.model.js")(sequelize, DataTypes);
 db.feedbacks = require("./feedback.model.js")(sequelize, DataTypes);
 db.pirs = require("./pirs.model.js")(sequelize, DataTypes);
+db.bunches = require("./bunch.model.js")(sequelize, DataTypes);
+db.bunchAsanas = require("./bunch-asana.model.js")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done");

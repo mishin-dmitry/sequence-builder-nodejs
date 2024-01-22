@@ -16,6 +16,7 @@ const collectSequenceInfoById = async (id) => {
   const blocks = await Block.findAll({ where: { sequenceId: id }, raw: true });
 
   const resultBlocks = [];
+  const cache = {};
 
   for (let i = 0; i < blocks.length; i++) {
     const currentBlock = blocks[i];
@@ -32,7 +33,15 @@ const collectSequenceInfoById = async (id) => {
     for (let j = 0; j < blockAsanas.length; j++) {
       const { asanaId, inRepeatingBlock, inDynamicBlock } = blockAsanas[j];
 
-      const asana = await Asanas.findByPk(asanaId);
+      let asana;
+
+      if (!cache[asanaId]) {
+        asana = await Asanas.findByPk(asanaId);
+
+        cache[asanaId] = asana;
+      } else {
+        asana = cache[asanaId];
+      }
 
       currentBlockAsanas.push({
         id: asana.id,
