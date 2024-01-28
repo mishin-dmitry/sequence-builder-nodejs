@@ -1,3 +1,4 @@
+const { getAsanasFromCache, isAsanasCacheEmpty } = require("../cache");
 const db = require("../models");
 
 // Основная модель
@@ -23,16 +24,22 @@ const createAsana = async (req, res) => {
 
 // Получить список асан
 const getAllAsanas = async (_, res) => {
-  const asanas = await Asana.findAll({
-    include: [
-      "groups",
-      {
-        model: Pirs,
-        as: "pirs",
-        attributes: ["pirId", "title"],
-      },
-    ],
-  });
+  let asanas = [];
+
+  if (isAsanasCacheEmpty()) {
+    asanas = await Asana.findAll({
+      include: [
+        "groups",
+        {
+          model: Pirs,
+          as: "pirs",
+          attributes: ["pirId", "title"],
+        },
+      ],
+    });
+  } else {
+    asanas = Object.values(getAsanasFromCache());
+  }
 
   res.status(200).send(asanas);
 };

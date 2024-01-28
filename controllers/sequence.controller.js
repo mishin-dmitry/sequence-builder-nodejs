@@ -1,3 +1,5 @@
+const { getAsanasFromCache } = require("../cache");
+
 const db = require("../models");
 
 // Основная модель
@@ -5,59 +7,63 @@ const Sequence = db.sequences;
 const Block = db.blocks;
 const BlockAsanas = db.blockAsanas;
 const Asanas = db.asanas;
+const SequenceView = db.sequenceView;
 
-const collectSequenceInfoById = async (id) => {
-  // Найдем модель последовательности
-  const sequence = await Sequence.findByPk(id, { raw: true });
+const collectSequenceInfoById = async (id, userId) => {
+  // Найдем вьюшку последовательности
+  const sequence = await SequenceView.findAll({ where: { id } });
 
   if (!sequence) return null;
+  if (!sequence.length) return [];
+  if (sequence[0].userId !== userId) return null;
 
-  // Соберем все блоки
-  const blocks = await Block.findAll({ where: { sequenceId: id }, raw: true });
+  let currentBlockId = null;
+  let blocks = [];
+  let currentBlock = [];
 
-  const resultBlocks = [];
-  const cache = {};
+  const asanasCache = getAsanasFromCache();
 
-  for (let i = 0; i < blocks.length; i++) {
-    const currentBlock = blocks[i];
+  for (let i = 0; i < sequence.length; i++) {
+    const element = sequence[i];
 
-    // Найдем все асаны для текущего блока
-    const blockAsanas = await BlockAsanas.findAll({
-      where: { blockId: currentBlock.id },
-      raw: true,
-    });
+    let currentAsana = null;
 
-    const currentBlockAsanas = [];
-
-    // Соберем инфу о асанах
-    for (let j = 0; j < blockAsanas.length; j++) {
-      const { asanaId, inRepeatingBlock, inDynamicBlock } = blockAsanas[j];
-
-      let asana;
-
-      if (!cache[asanaId]) {
-        asana = await Asanas.findByPk(asanaId);
-
-        cache[asanaId] = asana;
-      } else {
-        asana = cache[asanaId];
-      }
-
-      currentBlockAsanas.push({
-        id: asana.id,
-        alias: asana.alias,
-        inRepeatingBlock: Boolean(inRepeatingBlock),
-        inDynamicBlock: Boolean(inDynamicBlock),
-      });
+    if (asanasCache[element.asanaId]) {
+      currentAsana = asanasCache[element.asanaId];
+    } else {
+      currentAsana = await Asanas.findByPk(element.asanaId);
     }
 
-    resultBlocks.push(currentBlockAsanas);
+    currentAsana = {
+      ...currentAsana.get({ plain: true }),
+      inRepeatingBlock: element.inRepeatingBlock,
+      inDynamicBlock: element.inDynamicBlock,
+    };
+
+    if (currentBlockId !== element.blockId) {
+      currentBlockId = element.blockId;
+
+      if (currentBlock.length) {
+        blocks.push(currentBlock);
+        currentBlock = [currentAsana];
+      } else {
+        currentBlock.push(currentAsana);
+      }
+    } else {
+      currentBlock.push(currentAsana);
+    }
+
+    if (i === sequence.length - 1) {
+      blocks.push(currentBlock);
+    }
   }
 
   return {
-    ...sequence,
-    isPublic: Boolean(sequence.isPublic),
-    blocks: resultBlocks,
+    id,
+    title: sequence[0].title,
+    description: sequence[0].description,
+    blocks,
+    userId,
   };
 };
 
@@ -96,7 +102,7 @@ const createSequence = async (req, res) => {
     );
   }
 
-  const result = await collectSequenceInfoById(sequence.id);
+  const result = await collectSequenceInfoById(sequence.id, sequence.userId);
 
   res.status(200).send(result);
 };
@@ -105,15 +111,9 @@ const getSequence = async (req, res) => {
   const { id } = req.params;
   const { userId } = req;
 
-  const sequence = await collectSequenceInfoById(id);
+  const sequence = await collectSequenceInfoById(id, userId);
 
   if (!sequence) {
-    return res.status(200).send({ isFound: false });
-  }
-
-  // Если последовательность не с открытым доступом
-  // и не мы ее создатели то вернем 404
-  if (!sequence.isPublic && userId !== sequence.userId) {
     return res.status(200).send({ isFound: false });
   }
 
@@ -187,7 +187,7 @@ const updateSequence = async (req, res) => {
 
   await sequence.save();
 
-  const updatedSequence = await collectSequenceInfoById(id);
+  const updatedSequence = await collectSequenceInfoById(id, userId);
 
   return res.status(200).send(updatedSequence);
 };
@@ -232,20 +232,6 @@ const getUserSequences = async (req, res) => {
   const result = await Sequence.findAll({
     where: {
       userId,
-    },
-    include: {
-      model: Block,
-      as: "blocks",
-      attributes: ["id"],
-      include: {
-        model: Asanas,
-        attributes: ["id", "alias"],
-        as: "asanas",
-        through: {
-          attributes: ["inRepeatingBlock", "inDynamicBlock"],
-          as: "options",
-        },
-      },
     },
   });
 

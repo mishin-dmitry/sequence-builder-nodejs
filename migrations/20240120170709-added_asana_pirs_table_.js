@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
       },
       asanaId: {
         type: Sequelize.INTEGER,

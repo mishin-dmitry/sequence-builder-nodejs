@@ -47,9 +47,9 @@ module.exports = (sequelize, DataTypes) => {
   Asana.init(
     {
       name: { type: DataTypes.STRING, allowNull: false },
-      description: DataTypes.TEXT,
+      description: DataTypes.TEXT("long"),
       alias: { type: DataTypes.STRING, allowNull: false },
-      alignment: DataTypes.TEXT,
+      alignment: DataTypes.TEXT("long"),
       searchKeys: DataTypes.TEXT,
     },
     {

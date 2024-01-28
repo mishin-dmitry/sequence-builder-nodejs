@@ -12,6 +12,8 @@ const sequencesListRouter = require("./routes/sequences-list.router");
 const feedbackRouter = require("./routes/feedback.router");
 const asanasBunchRouter = require("./routes/asanas-bunch.router");
 
+const { isAsanasCacheEmpty, updateAsanasCache } = require("./cache");
+
 dotenv.config();
 
 const app = express();
@@ -62,3 +64,7 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log("Server Listening on PORT:", port);
 });
+
+if (isAsanasCacheEmpty()) {
+  updateAsanasCache();
+}

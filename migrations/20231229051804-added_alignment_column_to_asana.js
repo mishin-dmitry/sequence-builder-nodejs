@@ -6,7 +6,7 @@ module.exports = {
       "Asanas", // table name
       "alignment", // new field name
       {
-        type: Sequelize.TEXT,
+        type: Sequelize.TEXT("long"),
       }
     ),
 
