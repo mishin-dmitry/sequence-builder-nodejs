@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
       references: {
-        model: "Asana",
+        model: "Asanas",
         key: "id",
       },
     },

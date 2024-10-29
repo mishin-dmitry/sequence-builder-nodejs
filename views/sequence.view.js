@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
     },
-    { tableName: "SequenceView" }
+    { tableName: "SequenceView", timestamps: false }
   );
 
   return SequenceView;

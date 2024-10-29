@@ -35,7 +35,7 @@ const collectSequenceInfoById = async (id, userId) => {
     }
 
     currentAsana = {
-      ...currentAsana.get({ plain: true }),
+      ...currentAsana,
       inRepeatingBlock: element.inRepeatingBlock,
       inDynamicBlock: element.inDynamicBlock,
     };

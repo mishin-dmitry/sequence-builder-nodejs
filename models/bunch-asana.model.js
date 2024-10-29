@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
       references: {
-        model: "Asana",
+        model: "Asanas",
         key: "id",
       },
     },
@@ -26,6 +26,8 @@ module.exports = (sequelize, DataTypes) => {
         key: "id",
       },
     },
+  }, {
+    timestamps: false
   });
 
   return BunchAsana;

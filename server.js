@@ -11,6 +11,7 @@ const sequencesRouter = require("./routes/sequences.router");
 const sequencesListRouter = require("./routes/sequences-list.router");
 const feedbackRouter = require("./routes/feedback.router");
 const asanasBunchRouter = require("./routes/asanas-bunch.router");
+const asanaGroupsCategoriesRouter = require("./routes/asanas-groups-categories.router");
 
 const { isAsanasCacheEmpty, updateAsanasCache } = require("./cache");
 
@@ -43,12 +44,14 @@ app.use(cookieParser());
 // routers
 app.use("/api/asanas", asanasRouter);
 app.use("/api/asana-groups", asanaGroupsRouter);
+app.use("/api/asana-group-categories", asanaGroupsCategoriesRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/sequences", sequencesRouter);
 app.use("/api/sequences-list", sequencesListRouter);
 app.use("/api/feedback", feedbackRouter);
 app.use("/api/asanas-bunch", asanasBunchRouter);
+
 
 // catch all async errors
 app.use((error, req, res, next) => {

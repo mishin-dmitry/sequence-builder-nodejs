@@ -1,14 +1,16 @@
-const { getAsanasFromCache, isAsanasCacheEmpty } = require("../cache");
+const { getAsanasFromCache, isAsanasCacheEmpty, updateAsanaInCache } = require("../cache");
 const db = require("../models");
 
 // Основная модель
 const Asana = db.asanas;
 const AsanaByGroup = db.asanaByGroups;
 const Pirs = db.pirs;
+const ContinuingAsana = db.continuingAsanas;
+const AsanaGroups = db.asanasGroups
 
 // Создание асаны
 const createAsana = async (req, res) => {
-  const { groups = [], pirs = [], ...restBody } = req.body;
+  const { groups = [], pirs = [], continuingAsanas = [], ...restBody } = req.body;
 
   const asana = await Asana.create(restBody);
 
@@ -16,8 +18,38 @@ const createAsana = async (req, res) => {
     AsanaByGroup.bulkCreate(
       groups.map((groupId) => ({ asanaId: asana.id, groupId }))
     ),
+
+    ContinuingAsana.bulkCreate(
+      continuingAsanas.map((continuingAsanaId) => ({ asanaId: asana.id, continuingAsanaId }))
+    ),
+
     Pirs.bulkCreate(pirs.map((pirId) => ({ asanaId: asana.id, pirId }))),
   ]);
+
+  if (!isAsanasCacheEmpty()) {
+    const asanaModel = await Asana.findByPk(asana.id, {
+      include: [
+        {
+          model: AsanaGroups,
+          as: 'groups',
+          attributes: ['id', 'name', 'categoryId'],
+          through: { attributes: [] }
+        },
+        {
+          model: Pirs,
+          as: "pirs",
+          attributes: ["pirId", "title"],
+        },
+        {
+          model: ContinuingAsana,
+          as: "continuingAsanas",
+          attributes: ["continuingAsanaId"],
+        }
+      ],
+    });
+
+    updateAsanaInCache({...asanaModel.get({plain: true}), pirs: asanaModel.pirs.map(({pirId}) => pirId), continuingAsanas: asanaModel.continuingAsanas.map(({continuingAsanaId}) => continuingAsanaId)})
+  }
 
   res.status(200).send(asana);
 };
@@ -27,16 +59,32 @@ const getAllAsanas = async (_, res) => {
   let asanas = [];
 
   if (isAsanasCacheEmpty()) {
-    asanas = await Asana.findAll({
+    const result = await Asana.findAll({
       include: [
-        "groups",
+        {
+          model: AsanaGroups,
+          as: 'groups',
+          attributes: ['id', 'name', 'categoryId'],
+          through: { attributes: [] }
+        },
         {
           model: Pirs,
           as: "pirs",
           attributes: ["pirId", "title"],
         },
+        {
+          model: ContinuingAsana,
+          as: "continuingAsanas",
+          attributes: ["continuingAsanaId"],
+        }
       ],
     });
+
+    asanas = result.map((asana) => ({
+      ...asana.get({ plain: true }),
+      pirs: asana.pirs.map(({pirId}) => pirId),
+      continuingAsanas: asana.continuingAsanas.map(({continuingAsanaId}) => continuingAsanaId)
+    }))
   } else {
     asanas = Object.values(getAsanasFromCache());
   }
@@ -61,10 +109,12 @@ const getAsana = async (req, res) => {
 const updateAsana = async (req, res) => {
   const { id } = req.params;
 
-  const { groups = [], pirs = [], ...restBody } = req.body;
+  const { groups = [], pirs = [], continuingAsanas = [], ...restBody } = req.body;
 
   await Promise.all([
     AsanaByGroup.destroy({ where: { asanaId: id } }),
+    ContinuingAsana.destroy({ where: { asanaId: id } }),
+
     Pirs.destroy({ where: { asanaId: id } }),
 
     AsanaByGroup.bulkCreate(
@@ -72,9 +122,38 @@ const updateAsana = async (req, res) => {
     ),
 
     Pirs.bulkCreate(pirs.map((pirId) => ({ asanaId: id, pirId }))),
+
+    ContinuingAsana.bulkCreate(
+      continuingAsanas.map((continuingAsanaId) => ({ asanaId: id, continuingAsanaId }))
+    )
   ]);
 
   const asana = await Asana.update(restBody, { where: { id } });
+
+  if (!isAsanasCacheEmpty()) {
+    const asanaModel = await Asana.findByPk(id, {
+      include: [
+        {
+          model: AsanaGroups,
+          as: 'groups',
+          attributes: ['id', 'name', 'categoryId'],
+          through: { attributes: [] }
+        },
+        {
+          model: Pirs,
+          as: "pirs",
+          attributes: ["pirId", "title"],
+        },
+        {
+          model: ContinuingAsana,
+          as: "continuingAsanas",
+          attributes: ["continuingAsanaId"],
+        }
+      ],
+    });
+
+    updateAsanaInCache({...asanaModel.get({plain: true}), pirs: asanaModel.pirs.map(({pirId}) => pirId), continuingAsanas: asanaModel.continuingAsanas.map(({continuingAsanaId}) => continuingAsanaId)})
+  }
 
   // TODO 404
   res.status(200).send(asana);

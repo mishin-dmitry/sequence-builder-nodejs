@@ -18,9 +18,6 @@ const sequelize = new Sequelize(
       acquire: dbConfig.pool.acquire,
       idle: dbConfig.pool.idle,
     },
-    define: {
-      timestamps: false,
-    },
   }
 );
 
@@ -50,6 +47,8 @@ db.feedbacks = require("./feedback.model.js")(sequelize, DataTypes);
 db.pirs = require("./pirs.model.js")(sequelize, DataTypes);
 db.bunches = require("./bunch.model.js")(sequelize, DataTypes);
 db.bunchAsanas = require("./bunch-asana.model.js")(sequelize, DataTypes);
+db.continuingAsanas = require("./continuing-asana.model.js")(sequelize, DataTypes);
+db.asanasGroupsCategories = require("./asana-group-category.model.js")(sequelize, DataTypes);
 db.sequenceView = require("../views/sequence.view.js")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
