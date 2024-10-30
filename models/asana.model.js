@@ -58,6 +58,7 @@ module.exports = (sequelize, DataTypes) => {
       alias: { type: DataTypes.STRING, allowNull: false },
       alignment: DataTypes.TEXT("long"),
       searchKeys: DataTypes.TEXT,
+      image: DataTypes.STRING,
       canBeGenerated: {type: DataTypes.BOOLEAN, defaultValue: false},
       canBeStartOfSequence: {type: DataTypes.BOOLEAN, defaultValue: false},
       isAsymmetrical: {type: DataTypes.BOOLEAN, defaultValue: false},
