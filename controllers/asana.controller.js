@@ -24,9 +24,16 @@ const createAsana = async (req, res) => {
   const {
     groups = '[]',
     pirs = [],
-    continuingAsanas = [],
+    continuingAsanas = '[]',
+    canBeStartOfSequence,
+    canBeGenerated,
+    isAsymmetrical,
     ...restBody
   } = req.body
+
+  restBody.canBeStartOfSequence = canBeStartOfSequence === 'true'
+  restBody.canBeGenerated = canBeGenerated === 'true'
+  restBody.isAsymmetrical = isAsymmetrical === 'true'
 
   if (req.file?.location) {
     restBody.image = req.file.location.replace(BUCKET_HOST, MY_SITE_CDN_ADDRESS)
@@ -40,7 +47,7 @@ const createAsana = async (req, res) => {
     ),
 
     ContinuingAsana.bulkCreate(
-      continuingAsanas.map((continuingAsanaId) => ({
+      JSON.parse(continuingAsanas).map((continuingAsanaId) => ({
         asanaId: asana.id,
         continuingAsanaId
       }))
@@ -143,9 +150,16 @@ const updateAsana = async (req, res) => {
   const {
     groups = '[]',
     pirs = [],
-    continuingAsanas = [],
+    continuingAsanas = '[]',
+    canBeStartOfSequence,
+    canBeGenerated,
+    isAsymmetrical,
     ...restBody
   } = req.body
+
+  restBody.canBeStartOfSequence = canBeStartOfSequence === 'true'
+  restBody.canBeGenerated = canBeGenerated === 'true'
+  restBody.isAsymmetrical = isAsymmetrical === 'true'
 
   if (req.file?.location) {
     restBody.image = req.file.location.replace(BUCKET_HOST, MY_SITE_CDN_ADDRESS)
@@ -177,7 +191,7 @@ const updateAsana = async (req, res) => {
     Pirs.bulkCreate(pirs.map((pirId) => ({asanaId: id, pirId}))),
 
     ContinuingAsana.bulkCreate(
-      continuingAsanas.map((continuingAsanaId) => ({
+      JSON.parse(continuingAsanas).map((continuingAsanaId) => ({
         asanaId: id,
         continuingAsanaId
       }))
