@@ -1,34 +1,28 @@
-"use strict";
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn(
-      "Asanas", // table name
-      "canBeGenerated", // new field name
+      'Asanas', // table name
+      'canBeGenerated', // new field name
       {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: "Asanas", key: "id" },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        type: Sequelize.BOOLEAN,
+        allowNull: true
       }
     )
 
     await queryInterface.addColumn(
-      "Asanas", // table name
-      "canBeStartOfSequence", // new field name
+      'Asanas', // table name
+      'canBeStartOfSequence', // new field name
       {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: "Asanas", key: "id" },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        type: Sequelize.BOOLEAN,
+        allowNull: true
       }
     )
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("Users", "canBeGenerated")
-    await queryInterface.removeColumn("Users", "canBeStartOfSequence")
+    await queryInterface.removeColumn('Asanas', 'canBeGenerated')
+    await queryInterface.removeColumn('Asanas', 'canBeStartOfSequence')
   }
-};
+}

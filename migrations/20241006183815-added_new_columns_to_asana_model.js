@@ -1,10 +1,10 @@
-"use strict";
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn(
-      "Asanas", // table name
-      "isAsymmetrical", // new field name
+      'Asanas', // table name
+      'isAsymmetrical', // new field name
       {
         type: Sequelize.BOOLEAN,
         defaultValue: false
@@ -12,16 +12,16 @@ module.exports = {
     )
 
     await queryInterface.addColumn(
-      "Asanas", // table name
-      "groupForGenerating", // new field name
+      'Asanas', // table name
+      'groupForGenerating', // new field name
       {
-        type: Sequelize.ENUM(['sagittal', 'frontal', 'stomachLying', 'backLying', 'sitting', 'handBalances', 'shoulders', 'inverted']),
+        type: Sequelize.STRING
       }
     )
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("Users", "isAsymmetrical")
-    await queryInterface.removeColumn("Users", "groupForGenerating")
+    await queryInterface.removeColumn('Asanas', 'isAsymmetrical')
+    await queryInterface.removeColumn('Asanas', 'groupForGenerating')
   }
-};
+}

@@ -1,15 +1,15 @@
-"use strict";
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) =>
     queryInterface.addColumn(
-      "Asanas", // table name
-      "alignment", // new field name
+      'Asanas', // table name
+      'alignment', // new field name
       {
-        type: Sequelize.TEXT("long"),
+        type: Sequelize.TEXT('long')
       }
     ),
 
   down: async (queryInterface, Sequelize) =>
-    queryInterface.removeColumn("Users", "alignment"),
-};
+    queryInterface.removeColumn('Asanas', 'alignment')
+}

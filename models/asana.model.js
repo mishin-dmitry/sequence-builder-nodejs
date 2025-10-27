@@ -1,5 +1,5 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict'
+const {Model} = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
   class Asana extends Model {
@@ -10,66 +10,66 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Asana.belongsToMany(models.asanasGroups, {
-        through: "AsanaByGroups",
-        foreignKey: "asanaId",
-        otherKey: "groupId",
+        through: 'AsanaByGroups',
+        foreignKey: 'asanaId',
+        otherKey: 'groupId',
         onDelete: 'CASCADE',
         as: 'groups'
-      });
+      })
 
       Asana.belongsToMany(models.blocks, {
         through: {
-          model: "BlockAsana",
-          unique: false,
+          model: 'BlockAsana',
+          unique: false
         },
-        foreignKey: "asanaId",
-        otherKey: "blockId",
-        unique: false,
-      });
+        foreignKey: 'asanaId',
+        otherKey: 'blockId',
+        unique: false
+      })
 
       Asana.belongsToMany(models.bunches, {
         through: {
-          model: "BunchAsanas",
-          unique: false,
+          model: 'BunchAsanas',
+          unique: false
         },
-        as: "asanas",
-        foreignKey: "asanaId",
-        otherKey: "bunchId",
-        unique: false,
-      });
+        as: 'asanas',
+        foreignKey: 'asanaId',
+        otherKey: 'bunchId',
+        unique: false
+      })
 
       Asana.hasMany(models.continuingAsanas, {
-        as: "continuingAsanas",
-        foreignKey: "asanaId",
-        unique: false,
-      });
+        as: 'continuingAsanas',
+        foreignKey: 'asanaId',
+        unique: false
+      })
 
       Asana.hasMany(models.pirs, {
-        as: "pirs",
-        foreignKey: "asanaId",
-        unique: false,
-      });
+        as: 'pirs',
+        foreignKey: 'asanaId',
+        unique: false
+      })
     }
   }
   Asana.init(
     {
-      name: { type: DataTypes.STRING, allowNull: false },
-      description: DataTypes.TEXT("long"),
-      alias: { type: DataTypes.STRING, allowNull: false },
-      alignment: DataTypes.TEXT("long"),
+      name: {type: DataTypes.STRING, allowNull: false},
+      description: DataTypes.TEXT('long'),
+      alias: {type: DataTypes.STRING, allowNull: false},
+      alignment: DataTypes.TEXT('long'),
       searchKeys: DataTypes.TEXT,
       image: DataTypes.STRING,
       canBeGenerated: {type: DataTypes.BOOLEAN, defaultValue: false},
       canBeStartOfSequence: {type: DataTypes.BOOLEAN, defaultValue: false},
       isAsymmetrical: {type: DataTypes.BOOLEAN, defaultValue: false},
-      groupForGenerating: DataTypes.ENUM(['sagittal', 'frontal', 'stomachLying', 'backLying', 'sitting', 'handBalances', 'shoulders', 'inverted']),
+      groupForGenerating: DataTypes.STRING
     },
     {
       sequelize,
-      modelName: "Asana",
-      timestamps: false,
+      modelName: 'Asana',
+      timestamps: false
     }
-  );
+  )
 
-  return Asana;
-};
+  return Asana
+}
