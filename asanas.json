@@ -1,0 +1,1829 @@
+[
+  {
+    "id": 1,
+    "alias": "adhoHastaPadangushthasana4",
+    "name": "Адхо Хаста Падангуштхасана 4",
+    "categories": ["forwardBend", "standing"],
+    "searchKeys": "наклон вперед, большой палец ноги"
+  },
+  {
+    "id": 2,
+    "alias": "adhomukhaArdhaEkapadaRadjakapotasana",
+    "name": "Адхо Мукха Ардха Эка Пада Раджакапотасана",
+    "categories": ["hipOpener", "backbend", "standing"],
+    "searchKeys": "собака мордой вниз, голубь, растяжка бедра"
+  },
+  {
+    "id": 3,
+    "alias": "adhomukhaEkapadaUtkatasana",
+    "name": "Адхо Мукха Эка Пада Уткатасана",
+    "categories": ["standing", "standingBalance", "hipOpener"],
+    "searchKeys": "собака мордой вниз на одной ноге, стул"
+  },
+  {
+    "id": 4,
+    "alias": "adhomukhaShvanasana",
+    "name": "Адхо Мукха Шванасана",
+    "categories": ["standing", "warmUp"],
+    "searchKeys": "собака мордой вниз"
+  },
+  {
+    "id": 5,
+    "alias": "adhomukhaStupasana",
+    "name": "Адхо Мукха Ступасана",
+    "categories": ["hipOpener", "standing"],
+    "searchKeys": "собака мордой вниз, ступа"
+  },
+  {
+    "id": 6,
+    "alias": "adhomukhaUtkatasana",
+    "name": "Адхо Мукха Уткатасана",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "стул вперед, наклон стул"
+  },
+  {
+    "id": 7,
+    "alias": "adhomukhaUtthitahastaPadangushthasana2",
+    "name": "Адхо Мукха Уттхита Хаста Падангуштхасана 2",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "рука к стопе стоя, растяжка"
+  },
+  {
+    "id": 8,
+    "alias": "adhoMukhaVrikshasana",
+    "name": "Адхо Мукха Врикшасана",
+    "categories": ["inverted", "armBalance"],
+    "searchKeys": "стойка на руках"
+  },
+  {
+    "id": 9,
+    "alias": "agniStambhasana",
+    "name": "Агни Стамбхасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "двойной голубь, поза огня"
+  },
+  {
+    "id": 10,
+    "alias": "akarnaDhanurasana",
+    "name": "Акарна Дханурасана",
+    "categories": ["seated", "hipOpener", "forwardBend"],
+    "searchKeys": "лук у уха, стреляющий лучник"
+  },
+  {
+    "id": 11,
+    "alias": "anandaBalasana",
+    "name": "Ананда Баласана",
+    "categories": ["restorative", "hipOpener"],
+    "searchKeys": "счастливый ребенок"
+  },
+  {
+    "id": 12,
+    "alias": "anantasana",
+    "name": "Анантасана",
+    "categories": ["seated", "hipOpener", "core"],
+    "searchKeys": "лежащий Вишну, боковая растяжка лежа"
+  },
+  {
+    "id": 13,
+    "alias": "ardhaBaddhaSamakonasana",
+    "name": "Ардха Баддха Самаконасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "половина поперечного шпагата"
+  },
+  {
+    "id": 14,
+    "alias": "ardhaBhekasana",
+    "name": "Ардха Бхекасана",
+    "categories": ["backbend", "hipOpener"],
+    "searchKeys": "половина лягушки"
+  },
+  {
+    "id": 15,
+    "alias": "ardhaBrahmachariasana",
+    "name": "Ардха Брахмачариасана",
+    "categories": ["seated", "hipOpener", "forwardBend"],
+    "searchKeys": "поза Брахмачари половина"
+  },
+  {
+    "id": 16,
+    "alias": "ardhaChakrasana",
+    "name": "Ардха Чакрасана",
+    "categories": ["backbend", "standing"],
+    "searchKeys": "половина колеса стоя"
+  },
+  {
+    "id": 17,
+    "alias": "ardhaChandrasana",
+    "name": "Ардха Чандрасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "полумесяц"
+  },
+  {
+    "id": 18,
+    "alias": "ardhaEkapadaRadjakapotasana",
+    "name": "Ардха Эка Пада Раджакапотасана",
+    "categories": ["backbend", "hipOpener", "seated"],
+    "searchKeys": "половина царя голубей"
+  },
+  {
+    "id": 19,
+    "alias": "ardhaEkapadaRadjakapotasana2",
+    "name": "Ардха Эка Пада Раджакапотасана 2",
+    "categories": ["backbend", "hipOpener", "seated"],
+    "searchKeys": "половина царя голубей 2"
+  },
+  {
+    "id": 20,
+    "alias": "ardhagarudaPrasaritaPadottanasana",
+    "name": "Ардха Гаруда Прасарита Падоттанасана",
+    "categories": ["standing", "forwardBend", "hipOpener"],
+    "searchKeys": "орел наклон ноги широко"
+  },
+  {
+    "id": 21,
+    "alias": "ardhaHanumanasana",
+    "name": "Ардха Хануманасана",
+    "categories": ["hipOpener", "forwardBend", "seated"],
+    "searchKeys": "половина шпагата"
+  },
+  {
+    "id": 22,
+    "alias": "ardhaHanumanasanaSilovaya",
+    "name": "Ардха Хануманасана Силовая",
+    "categories": ["hipOpener", "core"],
+    "searchKeys": "половина шпагата силовая"
+  },
+  {
+    "id": 23,
+    "alias": "ardhaMatsiendrasana",
+    "name": "Ардха Матсиендрасана",
+    "categories": ["twist", "seated"],
+    "searchKeys": "скрутка сидя, половина рыбы Матсиендры"
+  },
+  {
+    "id": 24,
+    "alias": "ardhaNataradjasana",
+    "name": "Ардха Натараджасана",
+    "categories": ["standing", "standingBalance", "backbend"],
+    "searchKeys": "половина танцующего Шивы"
+  },
+  {
+    "id": 25,
+    "alias": "ardhaNavasana",
+    "name": "Ардха Навасана",
+    "categories": ["core", "seated"],
+    "searchKeys": "половина лодки"
+  },
+  {
+    "id": 26,
+    "alias": "ardhaNavasana2",
+    "name": "Ардха Навасана 2",
+    "categories": ["core", "seated"],
+    "searchKeys": "половина лодки 2"
+  },
+  {
+    "id": 27,
+    "alias": "ardhaPadangushthasana",
+    "name": "Ардха Падангуштхасана",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "половина большого пальца ноги"
+  },
+  {
+    "id": 28,
+    "alias": "ardhaPadmaPadangushthasana",
+    "name": "Ардха Падма Падангуштхасана",
+    "categories": ["standing", "standingBalance", "hipOpener"],
+    "searchKeys": "полулотос, большой палец ноги"
+  },
+  {
+    "id": 29,
+    "alias": "ardhapadmaVrikshasana",
+    "name": "Ардха Падма Врикшасана",
+    "categories": ["standing", "standingBalance", "hipOpener"],
+    "searchKeys": "полулотос дерево"
+  },
+  {
+    "id": 30,
+    "alias": "ardhaPavanamuktasana",
+    "name": "Ардха Паванамуктасана",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "половина позы освобождающей ветры"
+  },
+  {
+    "id": 31,
+    "alias": "ardhaPinchaMayurasana",
+    "name": "Ардха Пинча Майюрасана",
+    "categories": ["inverted", "armBalance"],
+    "searchKeys": "дельфин, предплечья"
+  },
+  {
+    "id": 32,
+    "alias": "ardhaPrasaritaPadottanasana",
+    "name": "Ардха Прасарита Падоттанасана",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "половина наклона ноги широко"
+  },
+  {
+    "id": 33,
+    "alias": "ardhaSamakonasana",
+    "name": "Ардха Самаконасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "половина поперечного шпагата"
+  },
+  {
+    "id": 34,
+    "alias": "ardhaSamakonasanaSilovaya",
+    "name": "Ардха Самаконасана Силовая",
+    "categories": ["hipOpener", "core"],
+    "searchKeys": "половина поперечного шпагата силовая"
+  },
+  {
+    "id": 35,
+    "alias": "ardhaUttanasana",
+    "name": "Ардха Уттанасана",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "половина наклона стоя"
+  },
+  {
+    "id": 36,
+    "alias": "ardhaUtthitahastaPadangushthasana1",
+    "name": "Ардха Уттхита Хаста Падангуштхасана 1",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "рука к стопе стоя"
+  },
+  {
+    "id": 37,
+    "alias": "ardhaUtthitahastaPadangushthasana1_2",
+    "name": "Ардха Уттхита Хаста Падангуштхасана 1 (вариант 2)",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "рука к стопе стоя, вариант 2"
+  },
+  {
+    "id": 38,
+    "alias": "ardhaVatayanasana",
+    "name": "Ардха Ватаянасана",
+    "categories": ["standing", "standingBalance", "hipOpener"],
+    "searchKeys": "половина позы лошади"
+  },
+  {
+    "id": 39,
+    "alias": "ardhaVirasana",
+    "name": "Ардха Вирасана",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "половина позы героя"
+  },
+  {
+    "id": 40,
+    "alias": "ardhaviraVrikshasana",
+    "name": "Ардха Вира Врикшасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "воин дерево"
+  },
+  {
+    "id": 41,
+    "alias": "ardhaVishvamitrasana",
+    "name": "Ардха Вишвамитрасана",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "половина позы Вишвамитры"
+  },
+  {
+    "id": 42,
+    "alias": "ashtavakrasana",
+    "name": "Аштавакрасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "восемь изгибов"
+  },
+  {
+    "id": 43,
+    "alias": "ashvaSanchalanasana",
+    "name": "Ашва Санчаланасана",
+    "categories": ["standing", "hipOpener"],
+    "searchKeys": "всадник, низкий выпад"
+  },
+  {
+    "id": 44,
+    "alias": "babyBakasana",
+    "name": "Бэби Бакасана",
+    "categories": ["armBalance"],
+    "searchKeys": "детская ворона, легкая ворона"
+  },
+  {
+    "id": 45,
+    "alias": "baddhaArdhaChandrasana",
+    "name": "Баддха Ардха Чандрасана",
+    "categories": ["standing", "standingBalance", "backbend"],
+    "searchKeys": "связанный полумесяц"
+  },
+  {
+    "id": 46,
+    "alias": "baddhaUtthitaHastaPadangushthasana",
+    "name": "Баддха Уттхита Хаста Падангуштхасана",
+    "categories": ["standing", "standingBalance", "hipOpener"],
+    "searchKeys": "связанная рука к стопе"
+  },
+  {
+    "id": 47,
+    "alias": "badhaKonasana",
+    "name": "Баддха Конасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "бабочка"
+  },
+  {
+    "id": 48,
+    "alias": "badhaParivrittaUtthitaHastaPadangushthasana",
+    "name": "Баддха Паривритта Уттхита Хаста Падангуштхасана",
+    "categories": ["standing", "standingBalance", "twist"],
+    "searchKeys": "скрутка рука к стопе стоя"
+  },
+  {
+    "id": 49,
+    "alias": "bakasana",
+    "name": "Бакасана",
+    "categories": ["armBalance"],
+    "searchKeys": "ворона, журавль"
+  },
+  {
+    "id": 50,
+    "alias": "balasana",
+    "name": "Баласана",
+    "categories": ["restorative"],
+    "searchKeys": "поза ребенка"
+  },
+  {
+    "id": 51,
+    "alias": "bhaktiVirabhadrasana",
+    "name": "Бхакти Вирабхадрасана",
+    "categories": ["standing", "backbend"],
+    "searchKeys": "молящийся воин"
+  },
+  {
+    "id": 52,
+    "alias": "bhekasana",
+    "name": "Бхекасана",
+    "categories": ["backbend", "hipOpener"],
+    "searchKeys": "лягушка"
+  },
+  {
+    "id": 53,
+    "alias": "bhudjangasana",
+    "name": "Бхуджангасана",
+    "categories": ["backbend"],
+    "searchKeys": "кобра"
+  },
+  {
+    "id": 54,
+    "alias": "bhudjaPidasana",
+    "name": "Бхуджа Пидасана",
+    "categories": ["armBalance", "core"],
+    "searchKeys": "давление на плечи"
+  },
+  {
+    "id": 55,
+    "alias": "bhudjaSvastikasana",
+    "name": "Бхуджа Свастикасана",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "скрещенные ноги на руках"
+  },
+  {
+    "id": 56,
+    "alias": "bidalasana",
+    "name": "Бидаласана",
+    "categories": ["warmUp", "seated"],
+    "searchKeys": "кошка"
+  },
+  {
+    "id": 57,
+    "alias": "bokovayaPlanka",
+    "name": "Боковая Планка",
+    "categories": ["core", "armBalance"],
+    "searchKeys": "боковая планка"
+  },
+  {
+    "id": 58,
+    "alias": "brahmachariasana",
+    "name": "Брахмачариасана",
+    "categories": ["armBalance", "core"],
+    "searchKeys": "поза Брахмачари"
+  },
+  {
+    "id": 59,
+    "alias": "brahmachariPashchimottanasana",
+    "name": "Брахмачари Пашчимоттанасана",
+    "categories": ["armBalance", "forwardBend"],
+    "searchKeys": "поза Брахмачари наклон"
+  },
+  {
+    "id": 60,
+    "alias": "chaturanga",
+    "name": "Чатуранга",
+    "categories": ["core", "armBalance"],
+    "searchKeys": "планка на локтях, четыре опоры"
+  },
+  {
+    "id": 61,
+    "alias": "dandasana",
+    "name": "Дандасана",
+    "categories": ["seated"],
+    "searchKeys": "посох"
+  },
+  {
+    "id": 62,
+    "alias": "dhanurasana",
+    "name": "Дханурасана",
+    "categories": ["backbend"],
+    "searchKeys": "лук"
+  },
+  {
+    "id": 63,
+    "alias": "diba",
+    "name": "Дыба",
+    "categories": ["backbend", "hipOpener"],
+    "searchKeys": "дыба"
+  },
+  {
+    "id": 64,
+    "alias": "djanuShirshasana",
+    "name": "Джану Ширшасана",
+    "categories": ["forwardBend", "seated", "hipOpener"],
+    "searchKeys": "голова к колену"
+  },
+  {
+    "id": 65,
+    "alias": "djatharaParivartanasana",
+    "name": "Джатхара Паривартанасана",
+    "categories": ["twist", "core"],
+    "searchKeys": "скрутка лежа"
+  },
+  {
+    "id": 66,
+    "alias": "dvipadaKaundiniasana",
+    "name": "Двипада Каундиниасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "поза мудреца Каундиньи на двух ногах"
+  },
+  {
+    "id": 67,
+    "alias": "dvipadaPithasana",
+    "name": "Двипада Питхасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "стол, скамья"
+  },
+  {
+    "id": 68,
+    "alias": "dvipadaShirshasana",
+    "name": "Двипада Ширшасана",
+    "categories": ["hipOpener", "inverted", "seated"],
+    "searchKeys": "обе ноги за голову"
+  },
+  {
+    "id": 69,
+    "alias": "easyVasishthasana",
+    "name": "Изи Васиштхасана",
+    "categories": ["armBalance", "core"],
+    "searchKeys": "легкая боковая планка"
+  },
+  {
+    "id": 70,
+    "alias": "ekaBhudjaSvastikasana",
+    "name": "Эка Бхуджа Свастикасана",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "скрещенные ноги на одной руке"
+  },
+  {
+    "id": 71,
+    "alias": "ekapadaAdhoBakasana",
+    "name": "Экапада Адхо Бакасана",
+    "categories": ["armBalance"],
+    "searchKeys": "ворона на одной ноге"
+  },
+  {
+    "id": 72,
+    "alias": "ekaPadaAdhomukhaShvanasana",
+    "name": "Эка Пада Адхомукха Шванасана",
+    "categories": ["standing", "hipOpener"],
+    "searchKeys": "собака мордой вниз, нога вверх"
+  },
+  {
+    "id": 73,
+    "alias": "ekapadaAgnistambhasana",
+    "name": "Экапада Агнистамбхасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "половина позы огня"
+  },
+  {
+    "id": 74,
+    "alias": "ekapadaArdhaPinchaMayurasana",
+    "name": "Экапада Ардха Пинча Майюрасана",
+    "categories": ["inverted", "armBalance"],
+    "searchKeys": "дельфин на одной ноге"
+  },
+  {
+    "id": 75,
+    "alias": "ekapadaArdhaPurvottanasana",
+    "name": "Экапада Ардха Пурвоттанасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "обратная планка одна нога"
+  },
+  {
+    "id": 76,
+    "alias": "ekapadaAshtangaNamaskarasana",
+    "name": "Экапада Аштанга Намаскарасана",
+    "categories": ["warmUp", "core"],
+    "searchKeys": "восемь точек одна нога"
+  },
+  {
+    "id": 77,
+    "alias": "ekaPadaBakasana",
+    "name": "Эка Пада Бакасана",
+    "categories": ["armBalance"],
+    "searchKeys": "ворона на одной ноге"
+  },
+  {
+    "id": 78,
+    "alias": "ekapadaBakasana2",
+    "name": "Экапада Бакасана 2",
+    "categories": ["armBalance"],
+    "searchKeys": "ворона на одной ноге 2"
+  },
+  {
+    "id": 79,
+    "alias": "ekaPadaBhudjangasana",
+    "name": "Эка Пада Бхуджангасана",
+    "categories": ["backbend"],
+    "searchKeys": "кобра одна нога"
+  },
+  {
+    "id": 80,
+    "alias": "ekapadaBidalasana",
+    "name": "Экапада Бидаласана",
+    "categories": ["warmUp", "hipOpener"],
+    "searchKeys": "кошка одна нога"
+  },
+  {
+    "id": 81,
+    "alias": "ekapadaDandaKaundiniasana",
+    "name": "Экапада Данда Каундиниасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "поза Каундиньи прямая нога"
+  },
+  {
+    "id": 82,
+    "alias": "ekapadaDhanurasana",
+    "name": "Экапада Дханурасана",
+    "categories": ["backbend"],
+    "searchKeys": "лук одна нога"
+  },
+  {
+    "id": 83,
+    "alias": "ekapadaHastaMardjariasana2",
+    "name": "Экапада Хаста Марджариасана 2",
+    "categories": ["warmUp", "core"],
+    "searchKeys": "кошка рука-нога 2"
+  },
+  {
+    "id": 84,
+    "alias": "ekapadaMardjariasana",
+    "name": "Экапада Марджариасана",
+    "categories": ["warmUp", "core"],
+    "searchKeys": "кошка одна нога"
+  },
+  {
+    "id": 85,
+    "alias": "ekapadaMardjariasana2",
+    "name": "Экапада Марджариасана 2",
+    "categories": ["warmUp", "core"],
+    "searchKeys": "кошка одна нога 2"
+  },
+  {
+    "id": 86,
+    "alias": "ekapadaPithasana",
+    "name": "Экапада Питхасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "стол одна нога"
+  },
+  {
+    "id": 87,
+    "alias": "ekapadaPurvottanasana",
+    "name": "Экапада Пурвоттанасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "обратная планка одна нога"
+  },
+  {
+    "id": 88,
+    "alias": "ekaPadaRadjaKapotasana",
+    "name": "Эка Пада Раджа Капотасана",
+    "categories": ["backbend", "hipOpener"],
+    "searchKeys": "царь голубей"
+  },
+  {
+    "id": 89,
+    "alias": "ekaPadaRadjaKapotasana2",
+    "name": "Эка Пада Раджа Капотасана 2",
+    "categories": ["backbend", "hipOpener"],
+    "searchKeys": "царь голубей 2"
+  },
+  {
+    "id": 90,
+    "alias": "ekaPadaSarvangasana",
+    "name": "Эка Пада Сарвангасана",
+    "categories": ["inverted"],
+    "searchKeys": "березка одна нога"
+  },
+  {
+    "id": 91,
+    "alias": "ekapadaShirshasana",
+    "name": "Экапада Ширшасана",
+    "categories": ["inverted", "hipOpener"],
+    "searchKeys": "стойка на голове одна нога"
+  },
+  {
+    "id": 92,
+    "alias": "ekapadaUrdhvaDhanurasana",
+    "name": "Экапада Урдхва Дханурасана",
+    "categories": ["backbend"],
+    "searchKeys": "мост одна нога"
+  },
+  {
+    "id": 93,
+    "alias": "ekapadaUshtrasana",
+    "name": "Экапада Уштрасана",
+    "categories": ["backbend"],
+    "searchKeys": "верблюд одна нога"
+  },
+  {
+    "id": 94,
+    "alias": "ekaPadaUtkatasana",
+    "name": "Эка Пада Уткатасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "стул одна нога"
+  },
+  {
+    "id": 95,
+    "alias": "ekapadaViparitaParivrittaAgniStambkhasana",
+    "name": "Экапада Випарита Паривритта Агнистамбхасана",
+    "categories": ["hipOpener", "twist"],
+    "searchKeys": "поза огня скрутка перевернутая"
+  },
+  {
+    "id": 96,
+    "alias": "funkyPincha",
+    "name": "Фанки Пинча",
+    "categories": ["inverted", "armBalance"],
+    "searchKeys": "предплечья, необычная"
+  },
+  {
+    "id": 97,
+    "alias": "galavasana",
+    "name": "Галавасана",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "летящая ворона"
+  },
+  {
+    "id": 98,
+    "alias": "gandaBherudasana",
+    "name": "Ганда Бхерундасана",
+    "categories": ["backbend", "inverted", "armBalance"],
+    "searchKeys": "формула один"
+  },
+  {
+    "id": 99,
+    "alias": "garudaParshvaBakasana",
+    "name": "Гаруда Паршва Бакасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "орел ворона"
+  },
+  {
+    "id": 100,
+    "alias": "garudasana",
+    "name": "Гарудасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "орел"
+  },
+  {
+    "id": 101,
+    "alias": "goasana",
+    "name": "Гоасана",
+    "categories": ["standing"],
+    "searchKeys": "гоасана"
+  },
+  {
+    "id": 102,
+    "alias": "gomukhasana",
+    "name": "Гомукхасана",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "морда коровы"
+  },
+  {
+    "id": 103,
+    "alias": "halasana",
+    "name": "Халасана",
+    "categories": ["inverted", "forwardBend"],
+    "searchKeys": "плуг"
+  },
+  {
+    "id": 104,
+    "alias": "hanumanasana",
+    "name": "Хануманасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "шпагат"
+  },
+  {
+    "id": 105,
+    "alias": "hastaPadangushthasana1",
+    "name": "Хаста Падангуштхасана 1",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "рука к стопе 1"
+  },
+  {
+    "id": 106,
+    "alias": "hastaPadangushthasana2",
+    "name": "Хаста Падангуштхасана 2",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "рука к стопе 2"
+  },
+  {
+    "id": 107,
+    "alias": "hastaPadangushthasana3",
+    "name": "Хаста Падангуштхасана 3",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "рука к стопе 3"
+  },
+  {
+    "id": 108,
+    "alias": "hastaPadangushthasana4",
+    "name": "Хаста Падангуштхасана 4",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "рука к стопе 4"
+  },
+  {
+    "id": 109,
+    "alias": "kakasana",
+    "name": "Какасана",
+    "categories": ["armBalance"],
+    "searchKeys": "ворон"
+  },
+  {
+    "id": 110,
+    "alias": "kamatkarasana",
+    "name": "Каматкарасана",
+    "categories": ["backbend", "armBalance"],
+    "searchKeys": "танцующий скорпион, дикая штука"
+  },
+  {
+    "id": 111,
+    "alias": "kapotasana",
+    "name": "Капотасана",
+    "categories": ["backbend", "hipOpener"],
+    "searchKeys": "голубь"
+  },
+  {
+    "id": 112,
+    "alias": "karnaPidasana",
+    "name": "Карна Пидасана",
+    "categories": ["inverted", "forwardBend"],
+    "searchKeys": "давление на уши"
+  },
+  {
+    "id": 113,
+    "alias": "kaundiniasana",
+    "name": "Каундиниасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "поза мудреца Каундиньи"
+  },
+  {
+    "id": 114,
+    "alias": "kraunchasana",
+    "name": "Краунчасана",
+    "categories": ["forwardBend", "seated", "hipOpener"],
+    "searchKeys": "цапля"
+  },
+  {
+    "id": 115,
+    "alias": "kurmasana",
+    "name": "Курмасана",
+    "categories": ["forwardBend", "seated", "hipOpener"],
+    "searchKeys": "черепаха"
+  },
+  {
+    "id": 116,
+    "alias": "laghuVishvamitrasana",
+    "name": "Лагху Вишвамитрасана",
+    "categories": ["armBalance", "hipOpener", "backbend"],
+    "searchKeys": "малая поза Вишвамитры"
+  },
+  {
+    "id": 117,
+    "alias": "lolasana",
+    "name": "Лоласана",
+    "categories": ["armBalance", "core"],
+    "searchKeys": "серьга"
+  },
+  {
+    "id": 118,
+    "alias": "makarasana",
+    "name": "Макарасана",
+    "categories": ["restorative"],
+    "searchKeys": "крокодил"
+  },
+  {
+    "id": 119,
+    "alias": "malasana",
+    "name": "Маласана",
+    "categories": ["hipOpener", "standing"],
+    "searchKeys": "гирлянда, приседание"
+  },
+  {
+    "id": 120,
+    "alias": "mandukasana",
+    "name": "Мандукасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "лягушка сидя"
+  },
+  {
+    "id": 121,
+    "alias": "marichiasana1",
+    "name": "Маричиасана 1",
+    "categories": ["twist", "forwardBend", "seated"],
+    "searchKeys": "скрутка Маричи 1"
+  },
+  {
+    "id": 122,
+    "alias": "marichiasana2",
+    "name": "Маричиасана 2",
+    "categories": ["twist", "forwardBend", "seated"],
+    "searchKeys": "скрутка Маричи 2"
+  },
+  {
+    "id": 123,
+    "alias": "marichiasana3",
+    "name": "Маричиасана 3",
+    "categories": ["twist", "forwardBend", "seated"],
+    "searchKeys": "скрутка Маричи 3"
+  },
+  {
+    "id": 124,
+    "alias": "marichiasana4",
+    "name": "Маричиасана 4",
+    "categories": ["twist", "forwardBend", "seated"],
+    "searchKeys": "скрутка Маричи 4"
+  },
+  {
+    "id": 125,
+    "alias": "marjariasana",
+    "name": "Марджариасана",
+    "categories": ["warmUp", "seated"],
+    "searchKeys": "кошка, кошка-корова"
+  },
+  {
+    "id": 126,
+    "alias": "matsiasana",
+    "name": "Матсиасана",
+    "categories": ["backbend", "seated"],
+    "searchKeys": "рыба"
+  },
+  {
+    "id": 127,
+    "alias": "mayurasana",
+    "name": "Майюрасана",
+    "categories": ["armBalance"],
+    "searchKeys": "павлин"
+  },
+  {
+    "id": 128,
+    "alias": "muktaArdhaVishvamitrasana",
+    "name": "Мукта Ардха Вишвамитрасана",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "свободная половина Вишвамитры"
+  },
+  {
+    "id": 129,
+    "alias": "muktaArdhaVishvamitrasana2",
+    "name": "Мукта Ардха Вишвамитрасана 2",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "свободная половина Вишвамитры 2"
+  },
+  {
+    "id": 130,
+    "alias": "muktaDvipadaAnantasana",
+    "name": "Мукта Двипада Анантасана",
+    "categories": ["seated", "hipOpener", "core"],
+    "searchKeys": "свободный Вишну на двух ногах"
+  },
+  {
+    "id": 131,
+    "alias": "muktaVasishthasana",
+    "name": "Мукта Васиштхасана",
+    "categories": ["armBalance", "core"],
+    "searchKeys": "свободная боковая планка"
+  },
+  {
+    "id": 132,
+    "alias": "nataradjaAdhomukhaShvanasana",
+    "name": "Натараджа Адхомукха Шванасана",
+    "categories": ["standing", "backbend", "hipOpener"],
+    "searchKeys": "танцующий Шива в собаке мордой вниз"
+  },
+  {
+    "id": 133,
+    "alias": "nataradjasana",
+    "name": "Натараджасана",
+    "categories": ["standing", "standingBalance", "backbend"],
+    "searchKeys": "танцующий Шива"
+  },
+  {
+    "id": 134,
+    "alias": "navasana",
+    "name": "Навасана",
+    "categories": ["core", "seated"],
+    "searchKeys": "лодка"
+  },
+  {
+    "id": 135,
+    "alias": "navasana2",
+    "name": "Навасана 2",
+    "categories": ["core", "seated"],
+    "searchKeys": "лодка 2"
+  },
+  {
+    "id": 136,
+    "alias": "nizkayaBakasana",
+    "name": "Низкая Бакасана",
+    "categories": ["armBalance"],
+    "searchKeys": "низкая ворона"
+  },
+  {
+    "id": 137,
+    "alias": "padahastasana",
+    "name": "Падахастасана",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "руки под стопы"
+  },
+  {
+    "id": 138,
+    "alias": "padangushthasana",
+    "name": "Падангуштхасана",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "большой палец ноги стоя"
+  },
+  {
+    "id": 139,
+    "alias": "padmasana",
+    "name": "Падмасана",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "лотос"
+  },
+  {
+    "id": 140,
+    "alias": "parighasana",
+    "name": "Паригхасана",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "ворота"
+  },
+  {
+    "id": 141,
+    "alias": "parivrattaArdhagarudaPrasaritaPadottanasana",
+    "name": "Паривритта Ардха Гаруда Прасарита Падоттанасана",
+    "categories": ["standing", "forwardBend", "twist"],
+    "searchKeys": "скрутка орел наклон"
+  },
+  {
+    "id": 142,
+    "alias": "parivritaArdhaChandrasana",
+    "name": "Паривритта Ардха Чандрасана",
+    "categories": ["standing", "standingBalance", "twist"],
+    "searchKeys": "скрутка полумесяц"
+  },
+  {
+    "id": 143,
+    "alias": "parivritaKaundiniasana",
+    "name": "Паривритта Каундиниасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "скрутка поза Каундиньи"
+  },
+  {
+    "id": 144,
+    "alias": "parivritaParshvakonasana",
+    "name": "Паривритта Паршваконасана",
+    "categories": ["standing", "twist"],
+    "searchKeys": "скрутка боковой угол"
+  },
+  {
+    "id": 145,
+    "alias": "parivritaTrikonasana",
+    "name": "Паривритта Триконасана",
+    "categories": ["standing", "twist"],
+    "searchKeys": "скрутка треугольник"
+  },
+  {
+    "id": 146,
+    "alias": "parivrittaArdhaEkapadaRadjakapotasana",
+    "name": "Паривритта Ардха Эка Пада Раджакапотасана",
+    "categories": ["backbend", "hipOpener", "twist"],
+    "searchKeys": "скрутка царь голубей"
+  },
+  {
+    "id": 147,
+    "alias": "parivrittaBadhaArdhaChandrasana",
+    "name": "Паривритта Баддха Ардха Чандрасана",
+    "categories": ["standing", "standingBalance", "twist"],
+    "searchKeys": "связанная скрутка полумесяц"
+  },
+  {
+    "id": 148,
+    "alias": "parivrittaDjanuShirshasana",
+    "name": "Паривритта Джану Ширшасана",
+    "categories": ["forwardBend", "seated", "twist"],
+    "searchKeys": "скрутка голова к колену"
+  },
+  {
+    "id": 149,
+    "alias": "parivrittaEkapadaAgnistambhasana",
+    "name": "Паривритта Экапада Агнистамбхасана",
+    "categories": ["hipOpener", "twist"],
+    "searchKeys": "скрутка поза огня"
+  },
+  {
+    "id": 150,
+    "alias": "parivrittaEkapadaDandaKaundiniasana",
+    "name": "Паривритта Экапада Данда Каундиниасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "скрутка Каундиньи прямая нога"
+  },
+  {
+    "id": 151,
+    "alias": "parivrittaGomukhasana",
+    "name": "Паривритта Гомукхасана",
+    "categories": ["seated", "hipOpener", "twist"],
+    "searchKeys": "скрутка морда коровы"
+  },
+  {
+    "id": 152,
+    "alias": "parivrittaKarnaPidasana",
+    "name": "Паривритта Карна Пидасана",
+    "categories": ["inverted", "twist"],
+    "searchKeys": "скрутка давление на уши"
+  },
+  {
+    "id": 153,
+    "alias": "parivrittaMardjariasana",
+    "name": "Паривритта Марджариасана",
+    "categories": ["warmUp", "twist"],
+    "searchKeys": "скрутка кошка"
+  },
+  {
+    "id": 154,
+    "alias": "parivrittaNavasana",
+    "name": "Паривритта Навасана",
+    "categories": ["core", "twist"],
+    "searchKeys": "скрутка лодка"
+  },
+  {
+    "id": 155,
+    "alias": "parivrittaPrasaritaPadottanasana",
+    "name": "Паривритта Прасарита Падоттанасана",
+    "categories": ["standing", "forwardBend", "twist"],
+    "searchKeys": "скрутка наклон ноги широко"
+  },
+  {
+    "id": 156,
+    "alias": "parivrittaShashankasana",
+    "name": "Паривритта Шашанкасана",
+    "categories": ["seated", "forwardBend", "twist"],
+    "searchKeys": "скрутка заяц"
+  },
+  {
+    "id": 157,
+    "alias": "parivrittaStupasana",
+    "name": "Паривритта Ступасана",
+    "categories": ["hipOpener", "twist"],
+    "searchKeys": "скрутка ступа"
+  },
+  {
+    "id": 158,
+    "alias": "parivrittaSukhasana",
+    "name": "Паривритта Сукхасана",
+    "categories": ["seated", "twist"],
+    "searchKeys": "скрутка по-турецки"
+  },
+  {
+    "id": 159,
+    "alias": "parivrittaSuryaYantrasana",
+    "name": "Паривритта Сурья Янтрасана",
+    "categories": ["hipOpener", "armBalance", "twist"],
+    "searchKeys": "скрутка компас"
+  },
+  {
+    "id": 160,
+    "alias": "parivrittaSvastikasana",
+    "name": "Паривритта Свастикасана",
+    "categories": ["seated", "twist"],
+    "searchKeys": "скрутка скрещенные ноги"
+  },
+  {
+    "id": 161,
+    "alias": "parivrittaUtkatasana",
+    "name": "Паривритта Уткатасана",
+    "categories": ["standing", "twist"],
+    "searchKeys": "скрутка стул"
+  },
+  {
+    "id": 162,
+    "alias": "parivrittaUttanasana",
+    "name": "Паривритта Уттанасана",
+    "categories": ["standing", "forwardBend", "twist"],
+    "searchKeys": "скрутка наклон стоя"
+  },
+  {
+    "id": 163,
+    "alias": "parivrittaVamadevasana",
+    "name": "Паривритта Вамадевасана",
+    "categories": ["seated", "hipOpener", "twist"],
+    "searchKeys": "скрутка Вамадевасана"
+  },
+  {
+    "id": 164,
+    "alias": "parivrittaVirabhadrasana",
+    "name": "Паривритта Вирабхадрасана",
+    "categories": ["standing", "twist"],
+    "searchKeys": "скрутка воин"
+  },
+  {
+    "id": 165,
+    "alias": "parshvaAdhomukhaBaddhaKonasana",
+    "name": "Паршва Адхомукха Баддха Конасана",
+    "categories": ["hipOpener", "standing"],
+    "searchKeys": "боковая собака мордой вниз, бабочка"
+  },
+  {
+    "id": 166,
+    "alias": "parshvaBakasana",
+    "name": "Паршва Бакасана",
+    "categories": ["armBalance", "twist"],
+    "searchKeys": "боковая ворона"
+  },
+  {
+    "id": 167,
+    "alias": "parshvaDhanurasana",
+    "name": "Паршва Дханурасана",
+    "categories": ["backbend"],
+    "searchKeys": "боковой лук"
+  },
+  {
+    "id": 168,
+    "alias": "parshvakonasana",
+    "name": "Паршваконасана",
+    "categories": ["standing"],
+    "searchKeys": "боковой угол"
+  },
+  {
+    "id": 169,
+    "alias": "parshvaStupasana",
+    "name": "Паршва Ступасана",
+    "categories": ["hipOpener"],
+    "searchKeys": "боковая ступа"
+  },
+  {
+    "id": 170,
+    "alias": "parshvaSvastikasana",
+    "name": "Паршва Свастикасана",
+    "categories": ["seated", "twist"],
+    "searchKeys": "боковые скрещенные ноги"
+  },
+  {
+    "id": 171,
+    "alias": "parshvaVrikshasana",
+    "name": "Паршва Врикшасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "боковое дерево"
+  },
+  {
+    "id": 172,
+    "alias": "parshvottanasana",
+    "name": "Паршвоттанасана",
+    "categories": ["standing", "forwardBend", "hipOpener"],
+    "searchKeys": "пирамида"
+  },
+  {
+    "id": 173,
+    "alias": "pashasana",
+    "name": "Пашасана",
+    "categories": ["twist", "standing"],
+    "searchKeys": "петля"
+  },
+  {
+    "id": 174,
+    "alias": "pashchimatanasana",
+    "name": "Пашчиматанасана",
+    "categories": ["forwardBend", "seated"],
+    "searchKeys": "наклон к прямым ногам сидя"
+  },
+  {
+    "id": 175,
+    "alias": "pavanaMuktasana",
+    "name": "Павана Муктасана",
+    "categories": ["seated", "hipOpener", "restorative"],
+    "searchKeys": "поза освобождающая ветры"
+  },
+  {
+    "id": 176,
+    "alias": "pinchaMayurasana",
+    "name": "Пинча Майюрасана",
+    "categories": ["inverted", "armBalance"],
+    "searchKeys": "предплечья, перо павлина"
+  },
+  {
+    "id": 177,
+    "alias": "planka",
+    "name": "Планка",
+    "categories": ["core"],
+    "searchKeys": "планка"
+  },
+  {
+    "id": 178,
+    "alias": "planka2",
+    "name": "Планка 2",
+    "categories": ["core"],
+    "searchKeys": "планка 2"
+  },
+  {
+    "id": 179,
+    "alias": "plankaNaPredplechiah",
+    "name": "Планка на предплечьях",
+    "categories": ["core"],
+    "searchKeys": "планка на локтях"
+  },
+  {
+    "id": 180,
+    "alias": "polumost",
+    "name": "Полумост",
+    "categories": ["backbend", "core"],
+    "searchKeys": "полумост, мостик"
+  },
+  {
+    "id": 181,
+    "alias": "prapadasana",
+    "name": "Прападасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "на носочках"
+  },
+  {
+    "id": 182,
+    "alias": "prasarita",
+    "name": "Прасарита",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "ноги широко наклон"
+  },
+  {
+    "id": 183,
+    "alias": "purvottanasana",
+    "name": "Пурвоттанасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "обратная планка, восходящая доска"
+  },
+  {
+    "id": 184,
+    "alias": "radjaBhudjangasana",
+    "name": "Раджа Бхуджангасана",
+    "categories": ["backbend"],
+    "searchKeys": "царская кобра"
+  },
+  {
+    "id": 185,
+    "alias": "rombergasana",
+    "name": "Ромбергасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "поза Ромберга"
+  },
+  {
+    "id": 186,
+    "alias": "rombergUttanasana",
+    "name": "Ромберг Уттанасана",
+    "categories": ["standing", "forwardBend", "standingBalance"],
+    "searchKeys": "наклон Ромберга"
+  },
+  {
+    "id": 187,
+    "alias": "rudrasana",
+    "name": "Рудрасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "поза Рудры"
+  },
+  {
+    "id": 188,
+    "alias": "sahadjaPurvottanasana",
+    "name": "Сахаджа Пурвоттанасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "легкая обратная планка"
+  },
+  {
+    "id": 189,
+    "alias": "salambaBhudjangasana",
+    "name": "Саламба Бхуджангасана",
+    "categories": ["backbend"],
+    "searchKeys": "сфинкс, кобра с опорой"
+  },
+  {
+    "id": 190,
+    "alias": "salambaSarvangasana",
+    "name": "Саламба Сарвангасана",
+    "categories": ["inverted"],
+    "searchKeys": "березка с опорой"
+  },
+  {
+    "id": 191,
+    "alias": "samakonasana",
+    "name": "Самаконасана",
+    "categories": ["hipOpener", "seated"],
+    "searchKeys": "поперечный шпагат"
+  },
+  {
+    "id": 192,
+    "alias": "shalabhasana",
+    "name": "Шалабхасана",
+    "categories": ["backbend"],
+    "searchKeys": "саранча, кузнечик"
+  },
+  {
+    "id": 193,
+    "alias": "shalabhasana2",
+    "name": "Шалабхасана 2",
+    "categories": ["backbend"],
+    "searchKeys": "саранча 2"
+  },
+  {
+    "id": 194,
+    "alias": "shashankasana",
+    "name": "Шашанкасана",
+    "categories": ["seated", "forwardBend", "restorative"],
+    "searchKeys": "заяц"
+  },
+  {
+    "id": 195,
+    "alias": "shashankasana2",
+    "name": "Шашанкасана 2",
+    "categories": ["seated", "forwardBend", "restorative"],
+    "searchKeys": "заяц 2"
+  },
+  {
+    "id": 196,
+    "alias": "shavasana",
+    "name": "Шавасана",
+    "categories": ["restorative"],
+    "searchKeys": "труп, релаксация"
+  },
+  {
+    "id": 197,
+    "alias": "shirshasana",
+    "name": "Ширшасана",
+    "categories": ["inverted"],
+    "searchKeys": "стойка на голове"
+  },
+  {
+    "id": 198,
+    "alias": "shirshasana2",
+    "name": "Ширшасана 2",
+    "categories": ["inverted"],
+    "searchKeys": "стойка на голове 2"
+  },
+  {
+    "id": 199,
+    "alias": "skandasana",
+    "name": "Скандасана",
+    "categories": ["standing", "standingBalance", "hipOpener"],
+    "searchKeys": "боковое приседание"
+  },
+  {
+    "id": 200,
+    "alias": "sukhaNavasana",
+    "name": "Сукха Навасана",
+    "categories": ["core", "seated"],
+    "searchKeys": "легкая лодка"
+  },
+  {
+    "id": 201,
+    "alias": "suptaArdhaMatsiendrasana",
+    "name": "Супта Ардха Матсиендрасана",
+    "categories": ["twist", "restorative"],
+    "searchKeys": "скрутка лежа"
+  },
+  {
+    "id": 202,
+    "alias": "suptaBadhaKonasana",
+    "name": "Супта Баддха Конасана",
+    "categories": ["restorative", "hipOpener"],
+    "searchKeys": "бабочка лежа"
+  },
+  {
+    "id": 203,
+    "alias": "suptaEkaPadaAgniStambhasana",
+    "name": "Супта Эка Пада Агни Стамбхасана",
+    "categories": ["hipOpener", "restorative"],
+    "searchKeys": "поза огня лежа"
+  },
+  {
+    "id": 204,
+    "alias": "suptaKurmasana",
+    "name": "Супта Курмасана",
+    "categories": ["forwardBend", "hipOpener"],
+    "searchKeys": "черепаха лежа"
+  },
+  {
+    "id": 205,
+    "alias": "suptaPadangushthasana1",
+    "name": "Супта Падангуштхасана 1",
+    "categories": ["restorative", "hipOpener"],
+    "searchKeys": "большой палец ноги лежа 1"
+  },
+  {
+    "id": 206,
+    "alias": "suptaPadangushthasana2",
+    "name": "Супта Падангуштхасана 2",
+    "categories": ["restorative", "hipOpener"],
+    "searchKeys": "большой палец ноги лежа 2"
+  },
+  {
+    "id": 207,
+    "alias": "suptaPadangushthasana3",
+    "name": "Супта Падангуштхасана 3",
+    "categories": ["restorative", "hipOpener"],
+    "searchKeys": "большой палец ноги лежа 3"
+  },
+  {
+    "id": 208,
+    "alias": "suptaParivrittaGarudasana",
+    "name": "Супта Паривритта Гарудасана",
+    "categories": ["twist", "restorative"],
+    "searchKeys": "орел лежа скрутка"
+  },
+  {
+    "id": 209,
+    "alias": "suptaVirasana",
+    "name": "Супта Вирасана",
+    "categories": ["backbend", "hipOpener", "restorative"],
+    "searchKeys": "герой лежа"
+  },
+  {
+    "id": 210,
+    "alias": "suriaYantrasana",
+    "name": "Сурья Янтрасана",
+    "categories": ["hipOpener", "armBalance", "seated"],
+    "searchKeys": "компас"
+  },
+  {
+    "id": 211,
+    "alias": "svastikasana",
+    "name": "Свастикасана",
+    "categories": ["seated"],
+    "searchKeys": "скрещенные ноги"
+  },
+  {
+    "id": 212,
+    "alias": "tadasana",
+    "name": "Тадасана",
+    "categories": ["standing"],
+    "searchKeys": "гора"
+  },
+  {
+    "id": 213,
+    "alias": "tiriakaTadasana",
+    "name": "Тирьяка Тадасана",
+    "categories": ["standing"],
+    "searchKeys": "наклон стоя в сторону, качающаяся пальма"
+  },
+  {
+    "id": 214,
+    "alias": "titibhasana",
+    "name": "Титибхасана",
+    "categories": ["armBalance", "forwardBend"],
+    "searchKeys": "светлячок"
+  },
+  {
+    "id": 215,
+    "alias": "tittibhasanaB",
+    "name": "Титибхасана Б",
+    "categories": ["armBalance", "forwardBend"],
+    "searchKeys": "светлячок, вариант Б"
+  },
+  {
+    "id": 216,
+    "alias": "tolasana",
+    "name": "Толасана",
+    "categories": ["armBalance", "seated", "core"],
+    "searchKeys": "весы"
+  },
+  {
+    "id": 217,
+    "alias": "triangdandasana",
+    "name": "Триангдандасана",
+    "categories": ["seated", "forwardBend"],
+    "searchKeys": "триангдандасана"
+  },
+  {
+    "id": 218,
+    "alias": "triangdandasana2",
+    "name": "Триангдандасана 2",
+    "categories": ["seated", "forwardBend"],
+    "searchKeys": "триангдандасана 2"
+  },
+  {
+    "id": 219,
+    "alias": "trikonasana1",
+    "name": "Триконасана 1",
+    "categories": ["standing"],
+    "searchKeys": "треугольник 1"
+  },
+  {
+    "id": 220,
+    "alias": "trikonasana2",
+    "name": "Триконасана 2",
+    "categories": ["standing"],
+    "searchKeys": "треугольник 2"
+  },
+  {
+    "id": 221,
+    "alias": "trivikramasana",
+    "name": "Тривикрамасана",
+    "categories": ["standing", "standingBalance", "hipOpener"],
+    "searchKeys": "вертикальный шпагат стоя"
+  },
+  {
+    "id": 222,
+    "alias": "upavishtaKonasana",
+    "name": "Упавишта Конасана",
+    "categories": ["forwardBend", "seated", "hipOpener"],
+    "searchKeys": "наклон сидя, ноги широко"
+  },
+  {
+    "id": 223,
+    "alias": "urdhvaDhanurasana",
+    "name": "Урдхва Дханурасана",
+    "categories": ["backbend"],
+    "searchKeys": "мост, колесо"
+  },
+  {
+    "id": 224,
+    "alias": "urdhvaHastasana",
+    "name": "Урдхва Хастасана",
+    "categories": ["standing"],
+    "searchKeys": "руки вверх"
+  },
+  {
+    "id": 225,
+    "alias": "urdhvaKukkutasana",
+    "name": "Урдхва Куккутасана",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "петух вверх"
+  },
+  {
+    "id": 226,
+    "alias": "urdhvaMukhaPashimottanasana",
+    "name": "Урдхва Мукха Пашимоттанасана",
+    "categories": ["seated", "forwardBend", "core"],
+    "searchKeys": "лицом вверх наклон к ногам"
+  },
+  {
+    "id": 227,
+    "alias": "urdhvaMukhaPashimottanasana2",
+    "name": "Урдхва Мукха Пашимоттанасана 2",
+    "categories": ["seated", "forwardBend", "core"],
+    "searchKeys": "лицом вверх наклон к ногам 2"
+  },
+  {
+    "id": 228,
+    "alias": "urdhvaMukhaShvanasana",
+    "name": "Урдхва Мукха Шванасана",
+    "categories": ["backbend"],
+    "searchKeys": "собака мордой вверх"
+  },
+  {
+    "id": 229,
+    "alias": "urdhvamukhaUpavishtaKonasana",
+    "name": "Урдхвамукха Упавишта Конасана",
+    "categories": ["forwardBend", "hipOpener", "seated"],
+    "searchKeys": "лицом вверх, ноги широко"
+  },
+  {
+    "id": 230,
+    "alias": "urdhvamukhaUpavishtaKonasanaLeza",
+    "name": "Урдхвамукха Упавишта Конасана Леза",
+    "categories": ["forwardBend", "hipOpener", "seated"],
+    "searchKeys": "лицом вверх, ноги широко, вариант"
+  },
+  {
+    "id": 231,
+    "alias": "urdhvaprasaritaEkapadasana",
+    "name": "Урдхва Прасарита Экападасана",
+    "categories": ["standing", "standingBalance", "forwardBend"],
+    "searchKeys": "нога вверх стоя"
+  },
+  {
+    "id": 232,
+    "alias": "urdhvaPrasaritaPadasana",
+    "name": "Урдхва Прасарита Падасана",
+    "categories": ["core", "seated"],
+    "searchKeys": "ноги вверх лежа"
+  },
+  {
+    "id": 233,
+    "alias": "ushtrasana",
+    "name": "Уштрасана",
+    "categories": ["backbend"],
+    "searchKeys": "верблюд"
+  },
+  {
+    "id": 234,
+    "alias": "utkatasana",
+    "name": "Уткатасана",
+    "categories": ["standing"],
+    "searchKeys": "стул"
+  },
+  {
+    "id": 235,
+    "alias": "uttanaPadasana",
+    "name": "Уттана Падасана",
+    "categories": ["core", "seated"],
+    "searchKeys": "ноги вверх лежа на спине"
+  },
+  {
+    "id": 236,
+    "alias": "uttanasana",
+    "name": "Уттанасана",
+    "categories": ["standing", "forwardBend"],
+    "searchKeys": "наклон вперед стоя"
+  },
+  {
+    "id": 237,
+    "alias": "utthanPrishthasana",
+    "name": "Уттхан Приштхасана",
+    "categories": ["hipOpener"],
+    "searchKeys": "ящерица"
+  },
+  {
+    "id": 238,
+    "alias": "utthitaAkarnaDhanurasana",
+    "name": "Уттхита Акарна Дханурасана",
+    "categories": ["seated", "hipOpener", "forwardBend"],
+    "searchKeys": "лук у уха вытянутый"
+  },
+  {
+    "id": 239,
+    "alias": "utthitaAshtangaNamaskarasana",
+    "name": "Уттхита Аштанга Намаскарасана",
+    "categories": ["warmUp", "core"],
+    "searchKeys": "восемь точек вытянутая"
+  },
+  {
+    "id": 240,
+    "alias": "utthitaDvipadaPithasana",
+    "name": "Уттхита Двипада Питхасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "стол вытянутый"
+  },
+  {
+    "id": 241,
+    "alias": "utthitaEkapadaPithasana",
+    "name": "Уттхита Экапада Питхасана",
+    "categories": ["backbend", "core"],
+    "searchKeys": "стол одна нога вытянутая"
+  },
+  {
+    "id": 242,
+    "alias": "utthitaParshvakonasanaSilovaya",
+    "name": "Уттхита Паршваконасана Силовая",
+    "categories": ["standing", "core"],
+    "searchKeys": "боковой угол силовая"
+  },
+  {
+    "id": 243,
+    "alias": "utthitaParshvaPadaUpaveshasana",
+    "name": "Уттхита Паршва Пада Упавешасана",
+    "categories": ["standing", "hipOpener", "standingBalance"],
+    "searchKeys": "боковой присед на одной ноге"
+  },
+  {
+    "id": 244,
+    "alias": "utthitaTrikonasana",
+    "name": "Уттхита Триконасана",
+    "categories": ["standing"],
+    "searchKeys": "вытянутый треугольник"
+  },
+  {
+    "id": 245,
+    "alias": "vadjrasana",
+    "name": "Ваджрасана",
+    "categories": ["seated"],
+    "searchKeys": "алмаз, на пятках"
+  },
+  {
+    "id": 246,
+    "alias": "vamadevasana",
+    "name": "Вамадевасана",
+    "categories": ["seated", "hipOpener", "backbend"],
+    "searchKeys": "поза Вамадевы"
+  },
+  {
+    "id": 247,
+    "alias": "vamadevasana2",
+    "name": "Вамадевасана 2",
+    "categories": ["seated", "hipOpener", "backbend"],
+    "searchKeys": "поза Вамадевы 2"
+  },
+  {
+    "id": 248,
+    "alias": "vasishthasana",
+    "name": "Васиштхасана",
+    "categories": ["armBalance", "core"],
+    "searchKeys": "боковая планка на одной руке"
+  },
+  {
+    "id": 249,
+    "alias": "viparitaKarani",
+    "name": "Випарита Карани",
+    "categories": ["inverted", "restorative"],
+    "searchKeys": "ноги на стене"
+  },
+  {
+    "id": 250,
+    "alias": "vira1",
+    "name": "Вирабхадрасана 1",
+    "categories": ["standing"],
+    "searchKeys": "воин 1"
+  },
+  {
+    "id": 251,
+    "alias": "vira1Silovaya",
+    "name": "Вирабхадрасана 1 Силовая",
+    "categories": ["standing", "core"],
+    "searchKeys": "воин 1 силовая"
+  },
+  {
+    "id": 252,
+    "alias": "vira2",
+    "name": "Вирабхадрасана 2",
+    "categories": ["standing"],
+    "searchKeys": "воин 2"
+  },
+  {
+    "id": 253,
+    "alias": "vira3",
+    "name": "Вирабхадрасана 3",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "воин 3"
+  },
+  {
+    "id": 254,
+    "alias": "virasana",
+    "name": "Вирасана",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "герой"
+  },
+  {
+    "id": 255,
+    "alias": "virasanaRuk",
+    "name": "Вирасана рук",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "герой, руки"
+  },
+  {
+    "id": 256,
+    "alias": "vishvamitrasana",
+    "name": "Вишвамитрасана",
+    "categories": ["armBalance", "hipOpener"],
+    "searchKeys": "поза мудреца Вишвамитры"
+  },
+  {
+    "id": 257,
+    "alias": "vrikshasana",
+    "name": "Врикшасана",
+    "categories": ["standing", "standingBalance"],
+    "searchKeys": "дерево"
+  },
+  {
+    "id": 258,
+    "alias": "vrishchikasana",
+    "name": "Вришчикасана",
+    "categories": ["inverted", "armBalance", "backbend"],
+    "searchKeys": "скорпион"
+  },
+  {
+    "id": 259,
+    "alias": "yogadandaBrahmachariasana",
+    "name": "Йогаданда Брахмачариасана",
+    "categories": ["seated", "hipOpener", "armBalance"],
+    "searchKeys": "йогический посох Брахмачари"
+  },
+  {
+    "id": 260,
+    "alias": "yogaDandasana",
+    "name": "Йога Дандасана",
+    "categories": ["seated", "hipOpener"],
+    "searchKeys": "йогический посох"
+  },
+  {
+    "id": 261,
+    "alias": "yogaNidrasana",
+    "name": "Йога Нидрасана",
+    "categories": ["hipOpener", "seated", "restorative"],
+    "searchKeys": "йогический сон"
+  }
+]

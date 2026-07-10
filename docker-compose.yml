@@ -1,31 +1,29 @@
 version: "4.23.0"
 
 services:
-  mysqldb:
-    image: mysql:8.1.0
+  postgresdb:
+    image: postgres:16
     restart: unless-stopped
     env_file: ./.env
     environment:
-      - MYSQL_DATABASE=$DB_NAME
-      - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=$DATABASE_DB
+      - POSTGRES_USER=$DATABASE_USERNAME
+      - POSTGRES_PASSWORD=$DATABASE_PASSWORD
     ports:
-      - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
+      - $POSTGRES_LOCAL_PORT:$POSTGRES_DOCKER_PORT
     volumes:
-      - db:/var/lib/mysql
+      - db:/var/lib/postgresql/data
   app:
     depends_on:
-      - mysqldb
+      - postgresdb
     build: ./
     restart: unless-stopped
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
-      - DB_HOST=mysqldb
-      - DB_USER=$DB_USER
-      - DB_PASSWORD=$DB_PASSWORD
-      - DB_NAME=$DB_NAME
-      - DB_PORT=$DB_PORT
+      - DATABASE_HOST=postgresdb
+      - DATABASE_PORT=$POSTGRES_DOCKER_PORT
     stdin_open: true
     tty: true
 

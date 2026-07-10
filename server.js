@@ -1,3 +1,5 @@
+require("express-async-errors");
+
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -13,7 +15,7 @@ const feedbackRouter = require("./routes/feedback.router");
 const asanasBunchRouter = require("./routes/asanas-bunch.router");
 const asanaGroupsCategoriesRouter = require("./routes/asanas-groups-categories.router");
 
-const { isAsanasCacheEmpty, updateAsanasCache } = require("./cache");
+const { isAsanasCacheLoaded, updateAsanasCache } = require("./cache");
 
 dotenv.config();
 
@@ -68,6 +70,10 @@ app.listen(port, () => {
   console.log("Server Listening on PORT:", port);
 });
 
-if (isAsanasCacheEmpty()) {
+process.on("unhandledRejection", (error) => {
+  console.error("Unhandled rejection:", error);
+});
+
+if (!isAsanasCacheLoaded()) {
   updateAsanasCache();
 }
