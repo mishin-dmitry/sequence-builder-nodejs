@@ -1,0 +1,580 @@
+<title>Yoga Portal — Backend API Reference</title>
+<style>
+  :root {
+    --bg: #f6f7f2;
+    --surface: #ffffff;
+    --border: #e2e6da;
+    --ink: #313647;
+    --ink-soft: #5c6672;
+    --accent: #6f8158;
+    --accent-bright: #7d8f68;
+    --accent-soft: #eef1ea;
+    --code-bg: #313647;
+    --code-text: #fff8d4;
+    --code-border: #4a5568;
+    --get-bg: #eef3f8; --get-ink: #3c6690;
+    --post-bg: #eaf3ec; --post-ink: #3c7a52;
+    --put-bg: #fbf1e3; --put-ink: #966322;
+    --delete-bg: #fbecec; --delete-ink: #a13f3f;
+    --shadow: 0 1px 2px rgba(49, 54, 71, 0.05);
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #171a14;
+    --surface: #20241b;
+    --border: #333a2b;
+    --ink: #edf0e6;
+    --ink-soft: #a7b19d;
+    --accent: #a3b087;
+    --accent-bright: #b3c097;
+    --accent-soft: rgba(163, 176, 135, 0.14);
+    --code-bg: #12140f;
+    --code-text: #fff8d4;
+    --code-border: #3a4032;
+    --get-bg: rgba(97, 156, 214, 0.14); --get-ink: #8fb8e0;
+    --post-bg: rgba(122, 191, 143, 0.14); --post-ink: #93c9a4;
+    --put-bg: rgba(224, 173, 97, 0.14); --put-ink: #e0b877;
+    --delete-bg: rgba(214, 110, 110, 0.14); --delete-ink: #e08f8f;
+    --shadow: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171a14;
+      --surface: #20241b;
+      --border: #333a2b;
+      --ink: #edf0e6;
+      --ink-soft: #a7b19d;
+      --accent: #a3b087;
+      --accent-bright: #b3c097;
+      --accent-soft: rgba(163, 176, 135, 0.14);
+      --code-bg: #12140f;
+      --code-text: #fff8d4;
+      --code-border: #3a4032;
+      --get-bg: rgba(97, 156, 214, 0.14); --get-ink: #8fb8e0;
+      --post-bg: rgba(122, 191, 143, 0.14); --post-ink: #93c9a4;
+      --put-bg: rgba(224, 173, 97, 0.14); --put-ink: #e0b877;
+      --delete-bg: rgba(214, 110, 110, 0.14); --delete-ink: #e08f8f;
+      --shadow: none;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  code, .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  a { color: var(--accent); }
+
+  header.doc-head {
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .doc-head p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 62ch;
+  }
+
+  .meta-line {
+    display: flex;
+    gap: 18px;
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+  }
+
+  .meta-line span b { color: var(--ink); font-weight: 600; }
+
+  /* table of contents */
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 44px;
+    box-shadow: var(--shadow);
+  }
+  nav.toc .toc-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  nav.toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    columns: 2;
+    column-gap: 24px;
+  }
+  nav.toc li { margin-bottom: 6px; break-inside: avoid; }
+  nav.toc a { text-decoration: none; font-size: 13.5px; }
+  nav.toc a:hover { text-decoration: underline; }
+
+  h2.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 64px 0 6px;
+    letter-spacing: -0.01em;
+    scroll-margin-top: 20px;
+  }
+  h2.section-title + .section-sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0 0 20px;
+    max-width: 62ch;
+  }
+
+  h3.sub-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-soft);
+    margin: 28px 0 12px;
+  }
+
+  .entity {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+
+  .entity-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--accent-soft);
+  }
+
+  .entity-head .name { font-size: 15.5px; font-weight: 700; }
+
+  .entity-head .kind {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .field-table { width: 100%; border-collapse: collapse; }
+  .field-table tr:not(:last-child) td { border-bottom: 1px solid var(--border); }
+  .field-table td { padding: 11px 20px; vertical-align: top; font-size: 13.5px; }
+  .field-table td.f-name { width: 26%; font-weight: 600; }
+  .field-table td.f-type { width: 26%; color: var(--accent); white-space: nowrap; }
+  .field-table td.f-note { color: var(--ink-soft); line-height: 1.55; }
+  .field-table td.f-note code {
+    background: var(--accent-soft);
+    color: var(--ink);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  /* endpoints */
+  .endpoints { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 0 0 20px; box-shadow: var(--shadow); }
+  .endpoint-row {
+    display: grid;
+    grid-template-columns: 62px 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    background: var(--surface);
+  }
+  .endpoint-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .verb {
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    padding: 3px 0;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+  .verb.get { background: var(--get-bg); color: var(--get-ink); }
+  .verb.post { background: var(--post-bg); color: var(--post-ink); }
+  .verb.put { background: var(--put-bg); color: var(--put-ink); }
+  .verb.delete { background: var(--delete-bg); color: var(--delete-ink); }
+  .endpoint-row .path { font-size: 13px; }
+  .endpoint-row .note { font-size: 12px; color: var(--ink-soft); text-align: right; white-space: nowrap; }
+
+  .callout {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-bright);
+    background: var(--surface);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 20px;
+    margin-bottom: 20px;
+  }
+  .callout .c-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .callout p { margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+  .callout ul { margin: 0; padding-left: 18px; }
+  .callout li { margin-bottom: 6px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+  .callout li:last-child { margin-bottom: 0; }
+  .callout code, .callout p code, .callout li code {
+    background: var(--accent-soft);
+    color: var(--ink);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 12.5px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    border: 1px solid var(--code-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+  pre .cm { color: #8fa075; }
+  pre .k { color: #9fc2e8; }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-left: 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  footer code { background: var(--accent-soft); padding: 1px 6px; border-radius: 5px; color: var(--ink); }
+</style>
+
+<div class="page">
+
+  <header class="doc-head">
+    <div class="eyebrow">Yoga Portal · Backend</div>
+    <h1>Справочник API и модели данных</h1>
+    <p>Актуальная схема данных и эндпоинтов бэкенда — снимок текущей реализации (Express + Sequelize + Postgres), для использования на фронте.</p>
+    <div class="meta-line">
+      <span>База: <b>REST, JSON</b></span>
+      <span>Авторизация: <b>cookie-сессия <code>_sid</code></b></span>
+      <span>Формат дат: <b>ISO 8601</b></span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <div class="toc-title">Содержание</div>
+    <ul>
+      <li><a href="#auth">Авторизация</a></li>
+      <li><a href="#user">User</a></li>
+      <li><a href="#asana">Asana</a></li>
+      <li><a href="#asana-groups">AsanasGroup / Category</a></li>
+      <li><a href="#sequence">Sequence</a></li>
+      <li><a href="#bunch">Bunch</a></li>
+      <li><a href="#pranayama">PranayamaSequence</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <h2 class="section-title" id="auth">Авторизация</h2>
+  <p class="section-sub">Сессия — httpOnly cookie <code>_sid</code> (JWT), выставляется при <code>signup</code>/<code>login</code>. Токен отдельно нигде не возвращается в теле ответа.</p>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/auth/signup</span><span class="note">{ email, password } → { id, email }</span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/auth/login</span><span class="note">{ email, password } → { id, email }</span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/auth/logout</span><span class="note">→ {}</span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/auth/request-reset-password</span><span class="note">{ email } → письмо со ссылкой</span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/auth/reset-password</span><span class="note">{ id, token, password } → { status }</span></div>
+  </div>
+
+  <h2 class="section-title" id="user">User</h2>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">User</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note">Автоинкремент.</td></tr>
+      <tr><td class="f-name">email</td><td class="f-type mono">string</td><td class="f-note">Уникальный логин.</td></tr>
+      <tr><td class="f-name">password</td><td class="f-type mono">—</td><td class="f-note">Хранится хешем, наружу никогда не отдаётся.</td></tr>
+    </table>
+  </div>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/user/getUser</span><span class="note">→ { id, email, isFound } по cookie-сессии</span></div>
+  </div>
+
+  <h2 class="section-title" id="asana">Asana</h2>
+  <p class="section-sub">Базовый словарь поз. Список читается либо из in-memory кэша, либо напрямую из БД, если кэш ещё не прогрет — на фронте разницы нет.</p>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">Asana</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">name</td><td class="f-type mono">string</td><td class="f-note">Название на русском.</td></tr>
+      <tr><td class="f-name">alias</td><td class="f-type mono">string</td><td class="f-note">Технический slug, camelCase, напр. <code>adhomukhaShvanasana</code>.</td></tr>
+      <tr><td class="f-name">description</td><td class="f-type mono">string | null</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">searchKeys</td><td class="f-type mono">string | null</td><td class="f-note">Синонимы/ключевые слова для поиска, одной строкой через запятую.</td></tr>
+      <tr><td class="f-name">image</td><td class="f-type mono">string | null</td><td class="f-note">Полный CDN-URL картинки.</td></tr>
+      <tr><td class="f-name">groups</td><td class="f-type mono">AsanasGroup[]<span class="badge">include</span></td><td class="f-note">Присутствует только там, где явно подгружается связями (см. ниже).</td></tr>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="c-title">Служебные записи-разделители</div>
+    <p>В словаре асан намеренно есть две нефункциональные записи для использования в билдере последовательностей: <code>alias: "separator"</code> («Разделитель») и <code>alias: "empty"</code> («Пустой блок»). Это обычные строки <code>Asana</code>, никакого отдельного типа/флага у них нет — определяются по алиасу.</p>
+  </div>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asanas/getAll</span><span class="note">→ Asana[] (с <code>groups</code>)</span></div>
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asanas/:id</span><span class="note">→ Asana</span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/asanas/create</span><span class="note">multipart/form-data + <code>image</code> файл</span></div>
+    <div class="endpoint-row"><span class="verb put">PUT</span><span class="path">/api/asanas/:id</span><span class="note">multipart/form-data</span></div>
+    <div class="endpoint-row"><span class="verb delete">DELETE</span><span class="path">/api/asanas/:id</span><span class="note"></span></div>
+  </div>
+
+  <h2 class="section-title" id="asana-groups">AsanasGroup / AsanasGroupsCategory</h2>
+  <p class="section-sub">Группы асан (напр. «Стоячие», «Прогибы») опционально принадлежат категории. Группа без категории — нормальное состояние.</p>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">AsanasGroup</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">name</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">alias</td><td class="f-type mono">string</td><td class="f-note">camelCase slug.</td></tr>
+      <tr><td class="f-name">categoryId</td><td class="f-type mono">number | null</td><td class="f-note"></td></tr>
+    </table>
+  </div>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">AsanasGroupsCategory</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">name</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+    </table>
+  </div>
+
+  <pre><span class="cm">// GET /api/asana-group-categories/getAll — форма ответа</span>
+{
+  "categories": [
+    { "id": 1, "name": "Уровень", "groups": [{ "id": 3, "name": "Стоячие", "categoryId": 1 }] }
+  ],
+  "uncategorizedGroups": [
+    { "id": 5, "name": "Прогибы", "categoryId": null }
+  ]
+}</pre>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asana-groups/getAll</span><span class="note">→ AsanasGroup[]</span></div>
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asana-groups/:id</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/asana-groups/create</span><span class="note">{ name, alias, categoryId? }</span></div>
+    <div class="endpoint-row"><span class="verb put">PUT</span><span class="path">/api/asana-groups/:id</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb delete">DELETE</span><span class="path">/api/asana-groups/:id</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asana-group-categories/getAll</span><span class="note">форма выше</span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/asana-group-categories/create</span><span class="note">{ name }</span></div>
+    <div class="endpoint-row"><span class="verb put">PUT</span><span class="path">/api/asana-group-categories/:id</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb delete">DELETE</span><span class="path">/api/asana-group-categories/:id</span><span class="note"></span></div>
+  </div>
+
+  <h2 class="section-title" id="sequence">Sequence</h2>
+  <p class="section-sub">Последовательность из асан. Порядок блоков и асан внутри блока — порядком элементов массива, как и в модели пранаямы.</p>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">Sequence</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">title</td><td class="f-type mono">string | null</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">description</td><td class="f-type mono">string | null</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">userId</td><td class="f-type mono">number</td><td class="f-note">Владелец.</td></tr>
+      <tr><td class="f-name">blocks</td><td class="f-type mono">Asana[][]<span class="badge">read only</span></td><td class="f-note">Только в ответе <code>GET /:id</code> — см. форму ниже. При создании/обновлении блоки передаются в другом, «плоском» виде.</td></tr>
+    </table>
+  </div>
+
+  <pre><span class="cm">// GET /api/asanas-sequences/:id — блоки сгруппированы, каждая асана несёт свои флаги</span>
+{
+  "id": 12,
+  "title": "Утренний комплекс",
+  "description": "",
+  "userId": 2,
+  "blocks": [
+    [
+      { "id": 4, "name": "Собака мордой вниз", "alias": "adhomukhaShvanasana",
+        "inRepeatingBlock": false, "inDynamicBlock": true }
+    ],
+    [
+      { "id": 12, "name": "Воин 1", "alias": "vira1",
+        "inRepeatingBlock": true, "inDynamicBlock": false }
+    ]
+  ]
+}</pre>
+
+  <pre><span class="cm">// POST /api/asanas-sequences/create и PUT /api/asanas-sequences/:id — тело запроса</span>
+{
+  "title": "Утренний комплекс",
+  "description": "",
+  "blocks": [
+    [{ "asanaId": 4, "inRepeatingBlock": false, "inDynamicBlock": true }],
+    [{ "asanaId": 12, "inRepeatingBlock": true, "inDynamicBlock": false }]
+  ]
+}</pre>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/asanas-sequences/create</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asanas-sequences/my</span><span class="note">→ Sequence[] (без <code>blocks</code>)</span></div>
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asanas-sequences/:id</span><span class="note">→ Sequence с <code>blocks</code></span></div>
+    <div class="endpoint-row"><span class="verb put">PUT</span><span class="path">/api/asanas-sequences/:id</span><span class="note">полная замена блоков</span></div>
+    <div class="endpoint-row"><span class="verb delete">DELETE</span><span class="path">/api/asanas-sequences/:id</span><span class="note"></span></div>
+  </div>
+
+  <h2 class="section-title" id="bunch">Bunch</h2>
+  <p class="section-sub">Именованная подборка асан без структуры блоков — просто плоский список.</p>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">Bunch</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">title</td><td class="f-type mono">string | null</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">asanas</td><td class="f-type mono">Asana[]<span class="badge">read only</span></td><td class="f-note">В ответах <code>GET</code>. При создании/обновлении передаётся <code>asanaId[]</code>.</td></tr>
+    </table>
+  </div>
+
+  <pre><span class="cm">// POST /api/asanas-bunch/create — тело запроса</span>
+{ "title": "Разминка перед классом", "asanas": [4, 12, 29] }</pre>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asanas-bunch/my</span><span class="note">→ Bunch[] с раскрытыми <code>asanas</code></span></div>
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/asanas-bunch/:id</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/asanas-bunch/create</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb put">PUT</span><span class="path">/api/asanas-bunch/:id</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb delete">DELETE</span><span class="path">/api/asanas-bunch/:id</span><span class="note"></span></div>
+  </div>
+
+  <h2 class="section-title" id="pranayama">PranayamaSequence</h2>
+  <p class="section-sub">Полностью серверная версия сущности из вашего артефакта с описанием клиентской модели — та же форма данных, теперь с <code>id</code>/<code>userId</code>/таймстампами от бэкенда и явным <code>position</code> у шагов вместо порядка в массиве.</p>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">PranayamaSequence</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">name</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">description</td><td class="f-type mono">string | null</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">userId</td><td class="f-type mono">number</td><td class="f-note">Владелец.</td></tr>
+      <tr><td class="f-name">createdAt</td><td class="f-type mono">string</td><td class="f-note">ISO-дата.</td></tr>
+      <tr><td class="f-name">updatedAt</td><td class="f-type mono">string</td><td class="f-note">ISO-дата.</td></tr>
+      <tr><td class="f-name">steps</td><td class="f-type mono">PranayamaStep[]</td><td class="f-note">Только в ответах <code>GET /:id</code>, <code>create</code>, <code>update</code> — не в списке <code>/my</code>.</td></tr>
+    </table>
+  </div>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">PranayamaStep</span><span class="kind">Вложенная сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">id</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">position</td><td class="f-type mono">number</td><td class="f-note">Порядок этапа, с 0. Задаётся сервером по порядку массива <code>steps</code> при сохранении.</td></tr>
+      <tr><td class="f-name">name</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">description</td><td class="f-type mono">string | null</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">mode</td><td class="f-type mono">"timer" | "metronome"<span class="badge">enum</span></td><td class="f-note"></td></tr>
+      <tr><td class="f-name">durationMode</td><td class="f-type mono">"time" | "cycles"<span class="badge">enum</span></td><td class="f-note"></td></tr>
+      <tr><td class="f-name">timerSeconds</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">cycleCount</td><td class="f-type mono">number</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">rhythm</td><td class="f-type mono">string | null</td><td class="f-note"><code>null</code> при <code>durationMode: "time"</code>. Иначе 2–4 сегмента через <code>:</code>, напр. <code>"4:4:4:4"</code>; сервер отклонит (500) другое количество сегментов или нечисловые значения.</td></tr>
+    </table>
+  </div>
+
+  <pre><span class="cm">// POST /api/pranayama-sequences/create — тело запроса (id/position/userId сервер проставит сам)</span>
+{
+  "name": "Утренняя практика",
+  "description": "Бодрящая последовательность",
+  "steps": [
+    { "name": "Капалабхати", "mode": "timer", "durationMode": "time",
+      "timerSeconds": 180, "cycleCount": 12, "rhythm": null },
+    { "name": "Самавритти", "mode": "metronome", "durationMode": "cycles",
+      "timerSeconds": 300, "cycleCount": 12, "rhythm": "4:4:4:4" }
+  ]
+}</pre>
+
+  <div class="callout">
+    <div class="c-title">PUT заменяет шаги целиком</div>
+    <p>Как и у <code>Sequence</code>, обновление пересобирает весь список <code>steps</code> заново — частичного патча одного шага нет. Присылайте полный массив на каждое сохранение.</p>
+  </div>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/pranayama-sequences/my</span><span class="note">→ PranayamaSequence[] (без <code>steps</code>)</span></div>
+    <div class="endpoint-row"><span class="verb get">GET</span><span class="path">/api/pranayama-sequences/:id</span><span class="note">→ со <code>steps</code></span></div>
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/pranayama-sequences/create</span><span class="note"></span></div>
+    <div class="endpoint-row"><span class="verb put">PUT</span><span class="path">/api/pranayama-sequences/:id</span><span class="note">полная замена шагов</span></div>
+    <div class="endpoint-row"><span class="verb delete">DELETE</span><span class="path">/api/pranayama-sequences/:id</span><span class="note"></span></div>
+  </div>
+
+  <h2 class="section-title" id="feedback">Feedback</h2>
+
+  <div class="entity">
+    <div class="entity-head"><span class="name">Feedback</span><span class="kind">Сущность</span></div>
+    <table class="field-table">
+      <tr><td class="f-name">email</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">name</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">topic</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+      <tr><td class="f-name">text</td><td class="f-type mono">string</td><td class="f-note"></td></tr>
+    </table>
+  </div>
+
+  <div class="endpoints">
+    <div class="endpoint-row"><span class="verb post">POST</span><span class="path">/api/feedback/</span><span class="note">{ email, name, topic, text }</span></div>
+  </div>
+
+  <footer>
+    Снимок реализации на текущий момент. Все защищённые ручки требуют cookie <code>_sid</code> — без сессии большинство эндпоинтов вернут <code>403</code>.
+  </footer>
+
+</div>

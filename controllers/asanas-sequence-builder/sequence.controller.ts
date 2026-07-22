@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { getAsanasFromCache } from "../cache";
-import db from "../models";
+import { getAsanasFromCache } from "../../cache";
+import db from "../../models";
 
 const Sequence = db.sequences;
 const Block = db.blocks;

@@ -6,15 +6,17 @@ import {
   InferCreationAttributes,
   CreationOptional,
 } from "sequelize";
-import { Db } from "./types";
+import { Db } from "../types";
 
 export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
-  class AsanasGroupsCategory extends Model<
-    InferAttributes<AsanasGroupsCategory>,
-    InferCreationAttributes<AsanasGroupsCategory>
+  class PranayamaSequence extends Model<
+    InferAttributes<PranayamaSequence>,
+    InferCreationAttributes<PranayamaSequence>
   > {
     declare id: CreationOptional<number>;
     declare name: string;
+    declare description: string | null;
+    declare userId: number;
     declare createdAt: CreationOptional<Date>;
     declare updatedAt: CreationOptional<Date>;
 
@@ -24,14 +26,18 @@ export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models: Db) {
-      AsanasGroupsCategory.hasMany(models.asanasGroups, {
-        foreignKey: "categoryId",
-        as: "groups",
-        onDelete: "CASCADE",
+      PranayamaSequence.hasMany(models.pranayamaSteps, {
+        foreignKey: "sequenceId",
+        as: "steps",
+      });
+
+      PranayamaSequence.belongsTo(models.users, {
+        foreignKey: "userId",
       });
     }
   }
-  AsanasGroupsCategory.init(
+
+  PranayamaSequence.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -39,14 +45,16 @@ export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
         primaryKey: true,
       },
       name: { type: DataTypes.STRING, allowNull: false },
+      description: DataTypes.STRING,
+      userId: DataTypes.INTEGER,
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE,
     },
     {
       sequelize,
-      modelName: "AsanasGroupsCategory",
+      modelName: "PranayamaSequence",
     }
   );
 
-  return AsanasGroupsCategory;
+  return PranayamaSequence;
 };

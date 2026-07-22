@@ -6,17 +6,17 @@ import {
   InferCreationAttributes,
   CreationOptional,
 } from "sequelize";
-import { Db } from "./types";
+import { Db } from "../types";
 
 export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
-  class AsanasGroup extends Model<
-    InferAttributes<AsanasGroup>,
-    InferCreationAttributes<AsanasGroup>
+  class AsanasGroupsCategory extends Model<
+    InferAttributes<AsanasGroupsCategory>,
+    InferCreationAttributes<AsanasGroupsCategory>
   > {
     declare id: CreationOptional<number>;
     declare name: string;
-    declare alias: string;
-    declare categoryId: number | null;
+    declare createdAt: CreationOptional<Date>;
+    declare updatedAt: CreationOptional<Date>;
 
     /**
      * Helper method for defining associations.
@@ -24,22 +24,14 @@ export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models: Db) {
-      AsanasGroup.belongsToMany(models.asanas, {
-        through: "AsanaByGroups",
-        foreignKey: "groupId",
-        otherKey: "asanaId",
-        onDelete: "CASCADE",
-        as: "asanas",
-      });
-
-      AsanasGroup.belongsTo(models.asanasGroupsCategories, {
+      AsanasGroupsCategory.hasMany(models.asanasGroups, {
         foreignKey: "categoryId",
+        as: "groups",
         onDelete: "CASCADE",
-        as: "category",
       });
     }
   }
-  AsanasGroup.init(
+  AsanasGroupsCategory.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -47,15 +39,14 @@ export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
         primaryKey: true,
       },
       name: { type: DataTypes.STRING, allowNull: false },
-      alias: { type: DataTypes.STRING, allowNull: false },
-      categoryId: DataTypes.INTEGER,
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE,
     },
     {
       sequelize,
-      modelName: "AsanasGroup",
-      timestamps: false,
+      modelName: "AsanasGroupsCategory",
     }
   );
 
-  return AsanasGroup;
+  return AsanasGroupsCategory;
 };

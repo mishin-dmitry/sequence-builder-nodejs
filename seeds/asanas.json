@@ -1825,5 +1825,15 @@
     "name": "Йога Нидрасана",
     "categories": ["hipOpener", "seated", "restorative"],
     "searchKeys": "йогический сон"
+  },
+  {
+    "id": 262,
+    "alias": "separator",
+    "name": "Разделитель"
+  },
+  {
+    "id": 263,
+    "alias": "empty",
+    "name": "Пустой блок"
   }
 ]

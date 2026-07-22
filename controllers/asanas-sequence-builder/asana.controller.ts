@@ -4,9 +4,9 @@ import {
   isAsanasCacheLoaded,
   updateAsanaInCache,
   removeAsanaFromCache
-} from '../cache'
-import db from '../models'
-import {deleteFileFromS3} from '../controllers/s3.controller'
+} from '../../cache'
+import db from '../../models'
+import {deleteFileFromS3} from '../s3.controller'
 
 // Основная модель
 const Asana = db.asanas

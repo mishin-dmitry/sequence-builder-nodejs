@@ -5,8 +5,8 @@ import {
   getAllAsanasGroupsCategories,
   getAsanasGroupsCategory,
   updateAsanasGroupsCategory,
-} from "../controllers/asana-group-category.controller";
-import { verifyToken, checkUserExisting } from "../middlewares";
+} from "../../controllers/asanas-sequence-builder/asana-group-category.controller";
+import { verifyToken, checkUserExisting } from "../../middlewares";
 
 const router = Router();
 

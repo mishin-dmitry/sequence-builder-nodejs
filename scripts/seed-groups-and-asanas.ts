@@ -17,10 +17,10 @@ interface AsanaSeed {
 }
 
 const groups: GroupSeed[] = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../groups.json"), "utf8")
+  fs.readFileSync(path.join(__dirname, "../seeds/groups.json"), "utf8")
 );
 const asanas: AsanaSeed[] = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../asanas.json"), "utf8")
+  fs.readFileSync(path.join(__dirname, "../seeds/asanas.json"), "utf8")
 );
 
 const resetSequence = async (table: string) => {

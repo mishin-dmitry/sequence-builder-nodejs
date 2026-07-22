@@ -6,7 +6,7 @@ import {
   InferCreationAttributes,
   CreationOptional,
 } from "sequelize";
-import { Db } from "./types";
+import { Db } from "../types";
 
 export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
   class Asana extends Model<InferAttributes<Asana>, InferCreationAttributes<Asana>> {

@@ -6,12 +6,14 @@ import {
   InferCreationAttributes,
   CreationOptional,
 } from "sequelize";
-import { Db } from "./types";
+import { Db } from "../types";
 
 export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
-  class Block extends Model<InferAttributes<Block>, InferCreationAttributes<Block>> {
+  class Sequence extends Model<InferAttributes<Sequence>, InferCreationAttributes<Sequence>> {
     declare id: CreationOptional<number>;
-    declare sequenceId: number;
+    declare title: string | null;
+    declare description: string | null;
+    declare userId: number;
 
     /**
      * Helper method for defining associations.
@@ -19,43 +21,37 @@ export = (sequelize: Sequelize, DataTypes: typeof SequelizeDataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models: Db) {
-      Block.belongsToMany(models.asanas, {
-        through: {
-          model: "BlockAsana",
-          unique: false,
-        },
-        as: "asanas",
-        foreignKey: "blockId",
-        otherKey: "asanaId",
-      });
-
-      Block.belongsTo(models.sequences, {
+      Sequence.hasMany(models.blocks, {
         foreignKey: "sequenceId",
         as: "blocks",
       });
+
+      Sequence.belongsTo(models.users, {
+        foreignKey: "userId",
+      });
     }
   }
-  Block.init(
+  Sequence.init(
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      sequenceId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "Sequences",
-          key: "id",
-        },
+      title: {
+        type: DataTypes.STRING,
       },
+      description: {
+        type: DataTypes.STRING,
+      },
+      userId: DataTypes.INTEGER,
     },
     {
       sequelize,
-      modelName: "Block",
+      modelName: "Sequence",
       timestamps: false,
     }
   );
 
-  return Block;
+  return Sequence;
 };

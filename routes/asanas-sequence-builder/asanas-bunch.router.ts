@@ -5,8 +5,8 @@ import {
   getBunch,
   updateBunch,
   getUserAsanaBunches,
-} from "../controllers/bunch.controller";
-import { verifyToken, checkUserExisting } from "../middlewares";
+} from "../../controllers/asanas-sequence-builder/bunch.controller";
+import { verifyToken, checkUserExisting } from "../../middlewares";
 
 const router = Router();
 

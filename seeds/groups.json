@@ -1,0 +1,14 @@
+[
+  {"id": 1, "alias": "standing", "name": "Стоячие"},
+  {"id": 2, "alias": "standingBalance", "name": "Балансы на одной ноге"},
+  {"id": 3, "alias": "armBalance", "name": "Балансы на руках"},
+  {"id": 4, "alias": "inverted", "name": "Перевёрнутые"},
+  {"id": 5, "alias": "backbend", "name": "Прогибы"},
+  {"id": 6, "alias": "twist", "name": "Скрутки"},
+  {"id": 7, "alias": "forwardBend", "name": "Наклоны вперёд"},
+  {"id": 8, "alias": "hipOpener", "name": "Раскрытие бёдер"},
+  {"id": 9, "alias": "seated", "name": "Сидячие/медитативные"},
+  {"id": 10, "alias": "core", "name": "Core/пресс"},
+  {"id": 11, "alias": "restorative", "name": "Восстанавливающие"},
+  {"id": 12, "alias": "warmUp", "name": "Разминка/суставная гимнастика"}
+]

@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { uploadFileToS3 } from "../controllers/s3.controller";
+import { uploadFileToS3 } from "../../controllers/s3.controller";
 import {
   createAsana,
   deleteAsana,
   getAllAsanas,
   getAsana,
   updateAsana,
-} from "../controllers/asana.controller";
-import { verifyToken, checkUserExisting } from "../middlewares";
+} from "../../controllers/asanas-sequence-builder/asana.controller";
+import { verifyToken, checkUserExisting } from "../../middlewares";
 
 const router = Router();
 

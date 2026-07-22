@@ -1,21 +1,21 @@
-require("express-async-errors");
+import "express-async-errors";
 
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const cookieParser = require("cookie-parser");
+import express, { Request, Response, NextFunction } from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
-const asanasRouter = require("./routes/asanas.router");
-const asanaGroupsRouter = require("./routes/asana-groups.router");
-const authRouter = require("./routes/auth.router");
-const userRouter = require("./routes/user.router");
-const sequencesRouter = require("./routes/sequences.router");
-const sequencesListRouter = require("./routes/sequences-list.router");
-const feedbackRouter = require("./routes/feedback.router");
-const asanasBunchRouter = require("./routes/asanas-bunch.router");
-const asanaGroupsCategoriesRouter = require("./routes/asanas-groups-categories.router");
+import asanasRouter from "./routes/asanas-sequence-builder/asanas.router";
+import asanaGroupsRouter from "./routes/asanas-sequence-builder/asana-groups.router";
+import authRouter from "./routes/auth.router";
+import userRouter from "./routes/user.router";
+import asanasSequencesRouter from "./routes/asanas-sequence-builder/asanas-sequences.router";
+import feedbackRouter from "./routes/feedback.router";
+import asanasBunchRouter from "./routes/asanas-sequence-builder/asanas-bunch.router";
+import asanaGroupsCategoriesRouter from "./routes/asanas-sequence-builder/asanas-groups-categories.router";
+import pranayamaSequencesRouter from "./routes/pranayamas-sequence-builder/pranayama-sequences.router";
 
-const { isAsanasCacheLoaded, updateAsanasCache } = require("./cache");
+import { isAsanasCacheLoaded, updateAsanasCache } from "./cache";
 
 dotenv.config();
 
@@ -49,20 +49,19 @@ app.use("/api/asana-groups", asanaGroupsRouter);
 app.use("/api/asana-group-categories", asanaGroupsCategoriesRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
-app.use("/api/sequences", sequencesRouter);
-app.use("/api/sequences-list", sequencesListRouter);
+app.use("/api/asanas-sequences", asanasSequencesRouter);
 app.use("/api/feedback", feedbackRouter);
 app.use("/api/asanas-bunch", asanasBunchRouter);
-
+app.use("/api/pranayama-sequences", pranayamaSequencesRouter);
 
 // catch all async errors
-app.use((error, req, res, next) => {
+app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ error: error.message });
 });
 
 const port = process.env.PORT || 8000;
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
 
